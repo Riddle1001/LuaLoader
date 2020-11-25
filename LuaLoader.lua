@@ -1,4 +1,4 @@
-local version = "version 2.1"
+local version = "VERSION 2.0"
 local version_url = "https://raw.githubusercontent.com/Aimware0/LuaLoader/main/version.txt"
 
 -- pasted functions
@@ -93,7 +93,7 @@ for k, lua in pairs(autorun_luas) do
 end
 
 local lualoader_tab = gui.Tab(gui.Reference("Settings"), "chicken.lualoader.tab", "Lua loader")
-local readme_gb = gui.Groupbox(lualoader_tab, "README", 10, 10, 610, 0)
+local readme_gb = gui.Groupbox(lualoader_tab, "README | " .. version, 10, 10, 610, 0)
 
 
 
