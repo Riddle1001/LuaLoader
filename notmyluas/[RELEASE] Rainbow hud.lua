@@ -19,11 +19,11 @@ local colors = {
 local colorChange = globals.TickCount()
 
 local function hudColor()
-    local colorspam = tostring(colors[math.random(#colors)]);
-    if globals.TickCount() - colorChange > 12 then
-        client.Command(colorspam)
-        colorChange = globals.TickCount()
-    end
+  local colorspam = tostring(colors[math.random(#colors)]);
+  if globals.TickCount() - colorChange > 12 then
+    client.Command(colorspam)
+    colorChange = globals.TickCount()
+  end
 end
 
 callbacks.Register( "Draw", "hudColor", hudColor);

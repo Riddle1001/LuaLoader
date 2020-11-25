@@ -5,8 +5,8 @@
 
 -- * Useful functions
 local function round(n, d)
-    local p = 10^d
-    return math.floor(n*p)/p
+  local p = 10^d
+  return math.floor(n*p)/p
 end
 
 local function cap(x, min, max)
@@ -113,8 +113,8 @@ local function BlockbotOnCreateMoveMain(UserCmd)
 		local TargetSpeed = vector.Length(BlockbotTarget:GetPropFloat("localdata", "m_vecVelocity[0]"), BlockbotTarget:GetPropFloat("localdata", "m_vecVelocity[1]"), BlockbotTarget:GetPropFloat("localdata", "m_vecVelocity[2]"))
 		
 		if BlockbotCrouchBlock == true then
-			UserCmd.forwardmove = cap( ((math.sin(math.rad(LocalAngles.y) ) *  VecForward.y) + (math.cos(math.rad(LocalAngles.y) ) * VecForward.x)) * 450, -450, 450)
-			UserCmd.sidemove    = cap( ((math.cos(math.rad(LocalAngles.y) ) * -VecForward.y) + (math.sin(math.rad(LocalAngles.y) ) * VecForward.x)) * 450, -450, 450)
+			UserCmd.forwardmove = cap( ((math.sin(math.rad(LocalAngles.y) ) * VecForward.y) + (math.cos(math.rad(LocalAngles.y) ) * VecForward.x)) * 450, -450, 450)
+			UserCmd.sidemove  = cap( ((math.cos(math.rad(LocalAngles.y) ) * -VecForward.y) + (math.sin(math.rad(LocalAngles.y) ) * VecForward.x)) * 450, -450, 450)
 		else
 
 			local DiffYaw = AimAngles.y - LocalAngles.y

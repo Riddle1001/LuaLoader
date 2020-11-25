@@ -58,18 +58,18 @@ local function esp(builder)
 local player = builder:GetEntity();
 
 if targetIndex and player:GetIndex() == targetIndex then
-    lastdamage = player:GetHealth() + adddamage:GetValue()
+  lastdamage = player:GetHealth() + adddamage:GetValue()
 builder:Color(255, 0, 0, 255);
 builder:AddTextTop(lastdamage);
 
-    end
+  end
 
 end
 
 
 function indicator()
 
-    if not entities.GetLocalPlayer() or not entities.GetLocalPlayer():IsAlive() then
+  if not entities.GetLocalPlayer() or not entities.GetLocalPlayer():IsAlive() then
 return end
 
 x,y = draw.GetScreenSize();
@@ -89,15 +89,15 @@ end
 function updatehealth()
 
 if enabled == true then
-                    gui.SetValue("rbot.accuracy.weapon.asniper.mindmg", lastdamage)
-                    gui.SetValue("rbot.accuracy.weapon.sniper.mindmg", lastdamage)
-                    gui.SetValue("rbot.accuracy.weapon.pistol.mindmg", lastdamage)
-                    gui.SetValue("rbot.accuracy.weapon.hpistol.mindmg", lastdamage)
-                    gui.SetValue("rbot.accuracy.weapon.smg.mindmg", lastdamage)
-                    gui.SetValue("rbot.accuracy.weapon.rifle.mindmg", lastdamage)
-                    gui.SetValue("rbot.accuracy.weapon.shotgun.mindmg", lastdamage)
-                    gui.SetValue("rbot.accuracy.weapon.scout.mindmg",lastdamage)
-                    gui.SetValue("rbot.accuracy.weapon.lmg.mindmg", lastdamage)
+          gui.SetValue("rbot.accuracy.weapon.asniper.mindmg", lastdamage)
+          gui.SetValue("rbot.accuracy.weapon.sniper.mindmg", lastdamage)
+          gui.SetValue("rbot.accuracy.weapon.pistol.mindmg", lastdamage)
+          gui.SetValue("rbot.accuracy.weapon.hpistol.mindmg", lastdamage)
+          gui.SetValue("rbot.accuracy.weapon.smg.mindmg", lastdamage)
+          gui.SetValue("rbot.accuracy.weapon.rifle.mindmg", lastdamage)
+          gui.SetValue("rbot.accuracy.weapon.shotgun.mindmg", lastdamage)
+          gui.SetValue("rbot.accuracy.weapon.scout.mindmg",lastdamage)
+          gui.SetValue("rbot.accuracy.weapon.lmg.mindmg", lastdamage)
 
 end
 end
@@ -105,38 +105,38 @@ end
 function DamageChange()
 
 if(input.IsButtonPressed(key:GetValue())) then
-            toggle = toggle + 1;
-    elseif(input.IsButtonDown) then
-    -- do nothing
-    end
-    if(input.IsButtonReleased(key:GetValue())) then
-            if (toggle%2 == 0) then
+      toggle = toggle + 1;
+  elseif(input.IsButtonDown) then
+  -- do nothing
+  end
+  if(input.IsButtonReleased(key:GetValue())) then
+      if (toggle%2 == 0) then
 
-                    auto = gui.GetValue("rbot.accuracy.weapon.asniper.mindmg")
-                    sniper = gui.GetValue("rbot.accuracy.weapon.sniper.mindmg")
-                    pistol = gui.GetValue("rbot.accuracy.weapon.pistol.mindmg")
-                    revolver = gui.GetValue("rbot.accuracy.weapon.hpistol.mindmg")
-                    smg = gui.GetValue("rbot.accuracy.weapon.smg.mindmg")
-                    rifle = gui.GetValue("rbot.accuracy.weapon.rifle.mindmg")
-                    shotgun = gui.GetValue("rbot.accuracy.weapon.shotgun.mindmg")
-                    scout = gui.GetValue("rbot.accuracy.weapon.scout.mindmg")
-                    lmg = gui.GetValue("rbot.accuracy.weapon.lmg.mindmg")
+          auto = gui.GetValue("rbot.accuracy.weapon.asniper.mindmg")
+          sniper = gui.GetValue("rbot.accuracy.weapon.sniper.mindmg")
+          pistol = gui.GetValue("rbot.accuracy.weapon.pistol.mindmg")
+          revolver = gui.GetValue("rbot.accuracy.weapon.hpistol.mindmg")
+          smg = gui.GetValue("rbot.accuracy.weapon.smg.mindmg")
+          rifle = gui.GetValue("rbot.accuracy.weapon.rifle.mindmg")
+          shotgun = gui.GetValue("rbot.accuracy.weapon.shotgun.mindmg")
+          scout = gui.GetValue("rbot.accuracy.weapon.scout.mindmg")
+          lmg = gui.GetValue("rbot.accuracy.weapon.lmg.mindmg")
 enabled = true;
-                    toggle = 0;
-            elseif (toggle%2 == 1) then
-    enabled = false;
-                gui.SetValue("rbot.accuracy.weapon.asniper.mindmg", auto)
-                gui.SetValue("rbot.accuracy.weapon.sniper.mindmg", sniper)
-                gui.SetValue("rbot.accuracy.weapon.pistol.mindmg", pistol)
-                gui.SetValue("rbot.accuracy.weapon.hpistol.mindmg", revolver)
-                gui.SetValue("rbot.accuracy.weapon.smg.mindmg", smg)
-                gui.SetValue("rbot.accuracy.weapon.rifle.mindmg", rifle)
-                gui.SetValue("rbot.accuracy.weapon.shotgun.mindmg", shotgun)
-                gui.SetValue("rbot.accuracy.weapon.scout.mindmg", scout)
-                gui.SetValue("rbot.accuracy.weapon.lmg.mindmg", lmg)
-                toggle = 1;
-            end
-    end
+          toggle = 0;
+      elseif (toggle%2 == 1) then
+  enabled = false;
+        gui.SetValue("rbot.accuracy.weapon.asniper.mindmg", auto)
+        gui.SetValue("rbot.accuracy.weapon.sniper.mindmg", sniper)
+        gui.SetValue("rbot.accuracy.weapon.pistol.mindmg", pistol)
+        gui.SetValue("rbot.accuracy.weapon.hpistol.mindmg", revolver)
+        gui.SetValue("rbot.accuracy.weapon.smg.mindmg", smg)
+        gui.SetValue("rbot.accuracy.weapon.rifle.mindmg", rifle)
+        gui.SetValue("rbot.accuracy.weapon.shotgun.mindmg", shotgun)
+        gui.SetValue("rbot.accuracy.weapon.scout.mindmg", scout)
+        gui.SetValue("rbot.accuracy.weapon.lmg.mindmg", lmg)
+        toggle = 1;
+      end
+  end
 
 end
 

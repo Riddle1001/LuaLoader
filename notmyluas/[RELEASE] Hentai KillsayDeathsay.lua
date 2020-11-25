@@ -35,28 +35,28 @@ function CHAT_KillSay( Event )
 
 if ( Event:GetName() == 'player_death' ) then
 
-  local ME = client.GetLocalPlayerIndex();
+ local ME = client.GetLocalPlayerIndex();
 
-  local INT_UID = Event:GetInt( 'userid' );
-  local INT_ATTACKER = Event:GetInt( 'attacker' );
+ local INT_UID = Event:GetInt( 'userid' );
+ local INT_ATTACKER = Event:GetInt( 'attacker' );
 
-  local NAME_Victim = client.GetPlayerNameByUserID( INT_UID );
-  local INDEX_Victim = client.GetPlayerIndexByUserID( INT_UID );
+ local NAME_Victim = client.GetPlayerNameByUserID( INT_UID );
+ local INDEX_Victim = client.GetPlayerIndexByUserID( INT_UID );
 
-  local NAME_Attacker = client.GetPlayerNameByUserID( INT_ATTACKER );
-  local INDEX_Attacker = client.GetPlayerIndexByUserID( INT_ATTACKER );
+ local NAME_Attacker = client.GetPlayerNameByUserID( INT_ATTACKER );
+ local INDEX_Attacker = client.GetPlayerIndexByUserID( INT_ATTACKER );
 
-  if ( INDEX_Attacker == ME and INDEX_Victim ~= ME ) then
+ if ( INDEX_Attacker == ME and INDEX_Victim ~= ME ) then
 
-      random = math.random (1, 18)
-      client.ChatSay( ' ' .. tostring( Kill_String[random]));
+   random = math.random (1, 18)
+   client.ChatSay( ' ' .. tostring( Kill_String[random]));
 
-  elseif ( INDEX_Victim == ME and INDEX_Attacker ~= ME ) then
+ elseif ( INDEX_Victim == ME and INDEX_Attacker ~= ME ) then
 
-      random = math.random (1, 3)
-      client.ChatSay( ' ' .. tostring( Death_String[random]));
+   random = math.random (1, 3)
+   client.ChatSay( ' ' .. tostring( Death_String[random]));
 
-  end
+ end
 
 end
 

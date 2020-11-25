@@ -4,12 +4,12 @@
 -- Forum link https://aimware.net/forum/thread/142785
 
 function FireGameEvent ( Event )
-    local player = entities.GetLocalPlayer()
-    if ( Event:GetName() == 'round_prestart' ) then
-        gui.SetValue( "rbot.antiaim.enable", 0 )
-    elseif ( Event:GetName() == 'round_freeze_end' or Event:GetName() == 'game_newmap' ) then
-        gui.SetValue( "rbot.antiaim.enable", 1 )
-    end
+  local player = entities.GetLocalPlayer()
+  if ( Event:GetName() == 'round_prestart' ) then
+    gui.SetValue( "rbot.antiaim.enable", 0 )
+  elseif ( Event:GetName() == 'round_freeze_end' or Event:GetName() == 'game_newmap' ) then
+    gui.SetValue( "rbot.antiaim.enable", 1 )
+  end
 end
 
 client.AllowListener( 'round_prestart' );

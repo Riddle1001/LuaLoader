@@ -18,28 +18,28 @@ listen('player_hurt')
 listen('player_death')
 
 local function healthshot_hitmarker(e)
-  local event_name = e:GetName()
-  if (event_name ~= 'player_hurt' and event_name ~= 'player_death') then return end
+ local event_name = e:GetName()
+ if (event_name ~= 'player_hurt' and event_name ~= 'player_death') then return end
 
-  local hit = GetPlayerIndexByUserID(e:GetInt("hitgroup"))
-  local me = localplayerindex()
-  local victim = GetPlayerIndexByUserID(e:GetInt('userid'))
-  local attacker = GetPlayerIndexByUserID(e:GetInt('attacker'))
-  local im_attacker = attacker == me and victim ~= me
+ local hit = GetPlayerIndexByUserID(e:GetInt("hitgroup"))
+ local me = localplayerindex()
+ local victim = GetPlayerIndexByUserID(e:GetInt('userid'))
+ local attacker = GetPlayerIndexByUserID(e:GetInt('attacker'))
+ local im_attacker = attacker == me and victim ~= me
  
-  if im_attacker then
+ if im_attacker then
 
-  	if (event_name == 'player_death') then
+ 	if (event_name == 'player_death') then
 		if(msc_enable_killsound:GetValue()) then
-    		local killsoundcmd = "play " .. msc_killsound:GetValue();
-        	client.Command(killsoundcmd, true);
+  		local killsoundcmd = "play " .. msc_killsound:GetValue();
+    	client.Command(killsoundcmd, true);
 		end
-  	end
-  
-  	if (event_name == 'player_hurt') then
+ 	end
+ 
+ 	if (event_name == 'player_hurt') then
 		if(msc_enable_hitsound:GetValue()) then
-    		local hitsoundcmd = "play " .. msc_hitsound:GetValue();
-       	 client.Command(hitsoundcmd, true);
+  		local hitsoundcmd = "play " .. msc_hitsound:GetValue();
+   	 client.Command(hitsoundcmd, true);
 		end
  	 end
 

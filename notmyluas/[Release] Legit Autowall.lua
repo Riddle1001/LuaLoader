@@ -31,82 +31,82 @@ local DEG_TO_RAD = PI / 180.0
 local RAD_TO_DEG = 180.0 / PI
 
 local function vec3_normalize(x, y, z)
-    local len = math.sqrt(x * x + y * y + z * z)
-    if len == 0 then
-        return 0, 0, 0
-    end
-    local r = 1 / len
-    return x * r, y * r, z * r
+  local len = math.sqrt(x * x + y * y + z * z)
+  if len == 0 then
+    return 0, 0, 0
+  end
+  local r = 1 / len
+  return x * r, y * r, z * r
 end
 
 local function vec3_dot(ax, ay, az, bx, by, bz)
-    return ax * bx + ay * by + az * bz
+  return ax * bx + ay * by + az * bz
 end
 
 local function angle_to_vec(pitch, yaw)
-    local pitch_rad, yaw_rad = DEG_TO_RAD * pitch, DEG_TO_RAD * yaw
-    local sp, cp, sy, cy = math.sin(pitch_rad), math.cos(pitch_rad), math.sin(yaw_rad), math.cos(yaw_rad)
-    return cp * cy, cp * sy, -sp
+  local pitch_rad, yaw_rad = DEG_TO_RAD * pitch, DEG_TO_RAD * yaw
+  local sp, cp, sy, cy = math.sin(pitch_rad), math.cos(pitch_rad), math.sin(yaw_rad), math.cos(yaw_rad)
+  return cp * cy, cp * sy, -sp
 end
 function calculate_fov_to_player(ent, lx, ly, lz, fx, fy, fz)
 local pOrigin = ent:GetProp("m_vecOrigin")
-    local px, py, pz = pOrigin.x, pOrigin.y, pOrigin.z
-    local dx, dy, dz = vec3_normalize(px - lx, py - ly, lz - lz)
-    local dot_product = vec3_dot(dx, dy, dz, fx, fy, fz)
-    local cos_inverse = math.acos(dot_product)
-    return RAD_TO_DEG * cos_inverse
+  local px, py, pz = pOrigin.x, pOrigin.y, pOrigin.z
+  local dx, dy, dz = vec3_normalize(px - lx, py - ly, lz - lz)
+  local dot_product = vec3_dot(dx, dy, dz, fx, fy, fz)
+  local cos_inverse = math.acos(dot_product)
+  return RAD_TO_DEG * cos_inverse
 end
 
 local function get_enemy_players()
 local players = entities.FindByClass("CCSPlayer")
-    local enemy_players = {}
-    for i, v in next, players do
-    if v:GetTeamNumber() ~= entities.GetLocalPlayer():GetTeamNumber() then
-    table.insert(enemy_players, v)
-    end
-    end
+  local enemy_players = {}
+  for i, v in next, players do
+  if v:GetTeamNumber() ~= entities.GetLocalPlayer():GetTeamNumber() then
+  table.insert(enemy_players, v)
+  end
+  end
 
-    return enemy_players
+  return enemy_players
 end
 
 local function get_closest_player_to_crosshair(lx, ly, lz, pitch, yaw)
-    local fx, fy, fz = angle_to_vec(pitch, yaw)
-    local enemy_players = get_enemy_players()
-    local nearest_player = nil
-    local nearest_player_fov = math.huge
-    for i = 1, #enemy_players do
-        local enemy_ent = enemy_players[i]
-        local fov_to_player = calculate_fov_to_player(enemy_ent, lx, ly, lz, fx, fy, fz)
-        if fov_to_player <= nearest_player_fov then
-            nearest_player = enemy_ent
-            nearest_player_fov = fov_to_player
-        end
-    end
-    return nearest_player, nearest_player_fov
+  local fx, fy, fz = angle_to_vec(pitch, yaw)
+  local enemy_players = get_enemy_players()
+  local nearest_player = nil
+  local nearest_player_fov = math.huge
+  for i = 1, #enemy_players do
+    local enemy_ent = enemy_players[i]
+    local fov_to_player = calculate_fov_to_player(enemy_ent, lx, ly, lz, fx, fy, fz)
+    if fov_to_player <= nearest_player_fov then
+      nearest_player = enemy_ent
+      nearest_player_fov = fov_to_player
+    end
+  end
+  return nearest_player, nearest_player_fov
 end
 
 local function calculate_fov_to_player(ent, lx, ly, lz, fx, fy, fz)
 local pOrigin = ent:GetProp("m_vecOrigin")
-    local px, py, pz = pOrigin.x, pOrigin.y, pOrigin.z
-    local dx, dy, dz = vec3_normalize(px - lx, py - ly, lz - lz)
-    local dot_product = vec3_dot(dx, dy, dz, fx, fy, fz)
-    local cos_inverse = math.acos(dot_product)
-    return RAD_TO_DEG * cos_inverse
+  local px, py, pz = pOrigin.x, pOrigin.y, pOrigin.z
+  local dx, dy, dz = vec3_normalize(px - lx, py - ly, lz - lz)
+  local dot_product = vec3_dot(dx, dy, dz, fx, fy, fz)
+  local cos_inverse = math.acos(dot_product)
+  return RAD_TO_DEG * cos_inverse
 end
 
 local function is_player_visible(local_player, lx, ly, lz, ent)
-    local visible_hitboxes = 0
-    local visible_hitbox_threshold = hitbox_threshold:GetValue()
-    for i = 0, 18 do
-    local epos = ent:GetHitboxPosition(i)
-        local ex, ey, ez = epos.x, epos.y, epos.z
-        local entindex = engine.TraceLine(Vector3(lx, ly, lz), Vector3(ex, ey, ez))
-        print(entindex.contents)
-        if entindex.contents <= 1 then
-            visible_hitboxes = visible_hitboxes + 1
-        end
-    end
-    return visible_hitboxes >= visible_hitbox_threshold
+  local visible_hitboxes = 0
+  local visible_hitbox_threshold = hitbox_threshold:GetValue()
+  for i = 0, 18 do
+  local epos = ent:GetHitboxPosition(i)
+    local ex, ey, ez = epos.x, epos.y, epos.z
+    local entindex = engine.TraceLine(Vector3(lx, ly, lz), Vector3(ex, ey, ez))
+    print(entindex.contents)
+    if entindex.contents <= 1 then
+      visible_hitboxes = visible_hitboxes + 1
+    end
+  end
+  return visible_hitboxes >= visible_hitbox_threshold
 end
 
 local function AWHandler()
@@ -148,11 +148,11 @@ local view_offset = 0 -- local_player:GetProp("m_vecViewOffset")
 local lz = lz + view_offset
 
 if nearest_player ~= nil and nearest_player_fov <= maximum_fov and chk_legitaw:GetValue() then
-        autowall_var2 = is_player_visible(local_player, lx, ly, lz, nearest_player)
-    else
-        autowall_var2 = false
-    end
-    AWHandler()
+    autowall_var2 = is_player_visible(local_player, lx, ly, lz, nearest_player)
+  else
+    autowall_var2 = false
+  end
+  AWHandler()
 end)
 
 [/i]

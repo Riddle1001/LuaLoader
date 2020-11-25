@@ -10,12 +10,12 @@ local steamids = {}
 local windowactive = 0
 
 local function in_table(tbl, value)
-    for _, v in ipairs(tbl) do
-        if value == v then
-            return true
-        end
-    end
-    return false
+  for _, v in ipairs(tbl) do
+    if value == v then
+      return true
+    end
+  end
+  return false
 end
 
 function tablelength(tbl)
@@ -72,7 +72,7 @@ local function deleteindex()
 end		
 
 local function IsInRect( x, y, x1, y1, x2, y2 )
-    return x >= x1 and x < x2 and y >= y1 and y < y2;
+  return x >= x1 and x < x2 and y >= y1 and y < y2;
 end
 
 local PListWindow = gui.Window( "plistwindow", "Per Player ESP", 100, 100, 200, 175 );
@@ -179,7 +179,7 @@ client.AllowListener("player_disconnect")
 
 local function cleartables()
 local lp = entities.GetLocalPlayer()
-    if lp == nil then 
+  if lp == nil then 
 		info = {}
 		steamids = {}
 	end	

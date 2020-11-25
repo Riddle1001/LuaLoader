@@ -17,7 +17,7 @@ end
 end
 
 function UI()
-    legfucker = gui.Checkbox(gui.Reference("Ragebot","Anti-Aim","Extra"),"legfucker","Leg Fucker", false);
+  legfucker = gui.Checkbox(gui.Reference("Ragebot","Anti-Aim","Extra"),"legfucker","Leg Fucker", false);
 end
 UI();
 
