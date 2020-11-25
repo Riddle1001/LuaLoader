@@ -1,4 +1,4 @@
-local version = "version 2.1"
+local version = "version 2.0"
 local version_url = "https://raw.githubusercontent.com/Aimware0/LuaLoader/main/version.txt"
 
 -- pasted functions
@@ -315,7 +315,6 @@ end)
 
 local new_autorun = RemoveLineFromMultiLine(file.Read("lualoader/autorun.txt"), "143823.lua\n")
 
-print(new_autorun)
 
 callbacks.Register("Draw", "Chicken.lualoader.UI", function()
 	for k, script_box in pairs(script_boxes) do
