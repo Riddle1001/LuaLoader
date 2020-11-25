@@ -1,4 +1,4 @@
-local version = "version 2.0"
+local version = "version 2.1"
 local version_url = "https://raw.githubusercontent.com/Aimware0/LuaLoader/main/version.txt"
 
 -- pasted functions
@@ -25,6 +25,7 @@ local function pprint(...)
 	print("[LuaLoader]", last_script_loaded, ...)
 end
 
+-- Update
 http.Get(version_url, function(content)
 	if version == string.gsub(content, "[\r\n]", "") then
 		print("[LuaLoader] is up to date")
@@ -69,15 +70,27 @@ local function ClearTempLuas()
 end
 
 
+local function RemoveLineFromMultiLine(MultiLine, LineToRemove)
+	return string.gsub(MultiLine, LineToRemove .. "\n", "")
+end
+
 if not lualoaderFolderExists() then
 	file.Open("lualoader/temp/temp.txt", "w"):Close()
 	file.Delete("lualoader/temp/temp.txt")
 	
 	file.Open("lualoader/downloads/temp.txt", "w"):Close()
+	file.Open("lualoader/autorun.txt", "w"):Close()
 	file.Delete("lualoader/downloads/temp.txt")
 end
 
 ClearTempLuas()
+
+-- Autorun
+local autorun_luas = split(file.Read("lualoader/autorun.txt"), "\n")
+
+for k, lua in pairs(autorun_luas) do
+	
+end
 
 local lualoader_tab = gui.Tab(gui.Reference("Settings"), "chicken.lualoader.tab", "Lua loader")
 local readme_gb = gui.Groupbox(lualoader_tab, "README", 10, 10, 610, 0)
@@ -101,16 +114,99 @@ local function GO_SetPos(GO, width, height)
 end
 
 
+local temp_path = "lualoader/temp"
+local downloads_path = "lualoader/downloads"
+local autorun_file = "lualoader/autorun.txt"
+
+local function add_temp_lua(script_url, id)
+	local path = temp_path .. "/" .. id .. ".lua"
+	http.Get(script_url, function(content)
+		local f = file.Open(path, "w")
+		f:Write(content)
+		f:Close()
+			LoadScript(path)
+	end)
+
+
+end
+
+local function remove_temp_lua(id)
+	local path = temp_path .. "/" .. id .. ".lua"
+	UnloadScript(path)
+	file.Delete(path)
+end
+
+local function add_downlaod_lua(script_url, id)
+	http.Get(script_url, function(content)
+		local f = file.Open(downloads_path .. "/" .. id .. ".lua" , "w")
+		f:Write(content)
+		f:Close()
+		script_box.downloaded = true
+	end)
+end
+
+local function remove_downloaded_lua(id)
+	local path = downloads_path .. "/" .. id .. ".lua"
+	file.Delete(path)
+	UnloadScript(path)
+end
+
+function add_to_autorun(lua)
+	if not string.match(file.Read("lualoader/autorun.txt"), lua) then
+		local f = file.Open("lualoader/autorun.txt", "a")
+		f:Write(lua .. ".lua\n")
+		f:Close()
+	end
+end
+
+function remove_from_autorun(lua)
+	local new_autorun = RemoveLineFromMultiLine(file.Read("lualoader/autorun.txt"), lua .. ".lua")
+	local f = file.Open("lualoader/autorun.txt", "w")
+	f:Write(new_autorun)
+	f:Close()
+end
+
+function should_autorun(id)
+	return string.match(file.Read("lualoader/autorun.txt"), id)
+end
+
+function is_downloaded(id)
+	local downloaded = false
+	file.Enumerate(function(fname)
+		if string.match(fname, "/") then
+			if string.sub(fname, 1, 19) == "lualoader/downloads" then
+				if string.match(fname, id) then
+					downloaded = true
+				end	
+			end
+		end
+	end)
+	return downloaded
+end
+
+
 local y_pos_counter = 145
 local script_boxes = {}
 
-
 local function CreateScriptBox(script_name, author, script_url, thread_url)
 	local script_box = {}
-		
 	local script_box_gb = gui.Groupbox(lualoader_tab, "        " .. script_name, 10, y_pos_counter, 610, 0)
 	
 	script_box.autorun_cb = gui.Checkbox(script_box_gb, "chicken.lualoader.checkbox", "", false)
+	script_box.oautorun_cb_v = script_box.autorun_cb:GetValue()
+	
+	script_box.id = get_thread_id(thread_url)
+
+	script_box.running = false
+	script_box.autorun = false
+		
+	script_box.autorun = should_autorun(script_box.id)
+	script_box.autorun_cb:SetValue(script_box.autorun)
+
+	script_box.downloaded = is_downloaded(script_box.id)
+	
+
+	
 	
 	GO_SetPos(script_box.autorun_cb, 0, -36)
 	GO_SetSize(script_box.autorun_cb, 22, 22)
@@ -133,58 +229,50 @@ local function CreateScriptBox(script_name, author, script_url, thread_url)
 	local author_text = gui.Text(script_box_gb, "Author: " .. author)
 	
 	
-	script_box.downloads_path = "lualoader/downloads/" .. get_thread_id(thread_url) .. ".lua"
-	script_box.temp_path = "lualoader/temp/temp" .. get_thread_id(thread_url) .. ".lua"
+	script_box.downloads_path = "lualoader/downloads/" .. script_box.id .. ".lua"
+	script_box.temp_path = "lualoader/temp/temp" ..script_box.id .. ".lua"
 	---------------------
 
 	script_box.run_btn = gui.Button(script_box_gb, "Run", function()
-		print("RUN CALLED!")
-		http.Get(script_url, function(content)
-			last_script_loaded = script_name
-			LoadScript(script_box.downloads_path)
-			script_box.running = true
-		end)
-	end)	
+		LoadScript(script_box.downloads_path)
+		script_box.running = true
+	end)
+	
 
 	script_box.temp_run_btn = gui.Button(script_box_gb, "Temp run", function() 
-		http.Get(script_url, function(content)
-			last_script_loaded = script_name
-			print("TEMP CALLED!")
-			local f = file.Open(script_box.temp_path, "w")
-			f:Write(content)
-			f:Close()
-			LoadScript(script_box.temp_path)
-			script_box.running = true
-		end)
+		add_temp_lua(script_url, script_box.id)
+		
+		last_script_loaded = script_name
+		script_box.running = true
 	end)
 	
 	
 	
 	script_box.unload_btn = gui.Button(script_box_gb, "Unload", function()
-		UnloadScript(script_box.temp_path)
-		file.Delete(script_box.temp_path)
+		UnloadScript(script_box.downloads_path)
+		
+		remove_temp_lua(script_box.id)
 		script_box.running = false	
 	end)
-	
-	
 	---------------------
 	
 	
 	---------------------
-	
 	script_box.download_btn = gui.Button(script_box_gb, "Download", function()
-		http.Get(script_url, function(content)
-			local f = file.Open(script_box.downloads_path, "w")
-			f:Write(content)
-			f:Close()
-			script_box.downloaded = true
-		end)
+		add_downlaod_lua(script_url, script_box.id)
+		script_box.downloaded = true
 	end)
 	
 	script_box.uninstall_btn = gui.Button(script_box_gb, "Uninstall", function()
-		script_box.downloads_path = "lualoader/downloads/" .. get_thread_id(thread_url) .. ".lua"
-		file.Delete(script_box.downloads_path)
+		remove_downloaded_lua(script_box.id)
+		
 		script_box.downloaded = false
+		script_box.running = false
+		
+		if script_box.autorun then
+			remove_from_autorun(script_box.id)
+			script_box.autorun_cb:SetValue(false)
+		end
 	end)
 	---------------------
 	
@@ -198,8 +286,11 @@ local function CreateScriptBox(script_name, author, script_url, thread_url)
 	
 	y_pos_counter = y_pos_counter + 90
 	
-	script_box.downloaded = false
-	script_box.running = false
+	if script_box.autorun then
+		LoadScript(script_box.downloads_path)
+		script_box.running = true
+	end
+	
 	
 	table.insert(script_boxes, script_box)	
 end
@@ -220,9 +311,16 @@ http.Get("https://raw.githubusercontent.com/Aimware0/LuaLoader/main/luas.txt", f
 	end
 end)
 
+
+
+local new_autorun = RemoveLineFromMultiLine(file.Read("lualoader/autorun.txt"), "143823.lua\n")
+
+print(new_autorun)
+
 callbacks.Register("Draw", "Chicken.lualoader.UI", function()
 	for k, script_box in pairs(script_boxes) do
-		script_box.run_btn:SetInvisible(script_box.running and not script_box.downloaded)
+		script_box.run_btn:SetInvisible(script_box.running or not script_box.downloaded)
+		
 		script_box.temp_run_btn:SetInvisible(script_box.running or script_box.downloaded)
 		script_box.unload_btn:SetInvisible(not script_box.running)
 		
@@ -232,6 +330,18 @@ callbacks.Register("Draw", "Chicken.lualoader.UI", function()
 		
 		script_box.autorun_cb:SetDisabled(not script_box.downloaded)
 		
+		if script_box.autorun_cb:GetValue() ~= script_box.oautorun_cb_v then
+			
+			if script_box.autorun_cb:GetValue() then
+				add_to_autorun(script_box.id)
+				script_box.autorun = true
+			else
+				remove_from_autorun(script_box.id)
+				script_box.autorun = false
+			end
+
+			script_box.oautorun_cb_v = script_box.autorun_cb:GetValue()
+		end
 	end
 end)
 
