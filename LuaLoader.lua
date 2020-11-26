@@ -1,4 +1,4 @@
-local version = "VERSION 2.13"
+local version = "VERSION 2.14"
 local version_url = "https://raw.githubusercontent.com/Aimware0/LuaLoader/main/version.txt"
 
 -- pasted functions
@@ -40,12 +40,15 @@ http.Get(version_url, function(content)
 	end
 end)
 
-oReference = oReference or gui.Reference 
+local function RemoveLineFromMultiLine(MultiLine, LineToRemove)
+	return string.gsub(MultiLine, LineToRemove .. "\n", "")
+end
+
+oReference = oReference or gui.Reference -- For printing out references that other scripts use, makes it easier to find where the scripts are located in the aimware ui
 function gui.Reference(...)
 	pprint(...)
 	return oReference(...)
 end
-
 
 local function lualoaderFolderExists()
 	local exists = false
@@ -59,7 +62,6 @@ local function lualoaderFolderExists()
 	return exists
 end
 
-
 local function ClearTempLuas()
 	file.Enumerate(function(fname)
 		if string.sub(fname, 1, 15) == "lualoader/temp/" then
@@ -69,32 +71,29 @@ local function ClearTempLuas()
 end
 
 
-local function RemoveLineFromMultiLine(MultiLine, LineToRemove)
-	return string.gsub(MultiLine, LineToRemove .. "\n", "")
-end
+local temp_path = "lualoader/temp"
+local downloads_path = "lualoader/downloads"
+local autorun_file = "lualoader/autorun.txt"
 
 if not lualoaderFolderExists() then
-	file.Open("lualoader/temp/temp.txt", "w"):Close()
-	file.Delete("lualoader/temp/temp.txt")
+	local path = temp_path .. "/temp.txt"
+	file.Open(path, "w"):Close()
+	file.Delete(path)
 	
-	file.Open("lualoader/downloads/temp.txt", "w"):Close()
-	file.Open("lualoader/autorun.txt", "w"):Close()
-	file.Delete("lualoader/downloads/temp.txt")
+	path = downloads_path .. "/temp.txt"
+	file.Open(path, "w"):Close()
+	file.Delete(path)
+	
+	file.Open(autorun_file, "w"):Close()
 end
 
 ClearTempLuas()
 
--- Autorun
-local autorun_luas = split(file.Read("lualoader/autorun.txt"), "\n")
-
-for k, lua in pairs(autorun_luas) do
-	
-end
 
 local lualoader_tab = gui.Tab(gui.Reference("Settings"), "Chicken.lualoader.tab", "Lua loader")
+
+
 local readme_gb = gui.Groupbox(lualoader_tab, "README | " .. version, 10, 10, 610, 0)
-
-
 local redme_text = gui.Text(readme_gb, readme)
 http.Get("https://raw.githubusercontent.com/Aimware0/LuaLoader/main/README.md", function(content)
 	redme_text:SetText(content)
@@ -103,6 +102,8 @@ end)
 local search_entry = gui.Editbox(lualoader_tab, "Chicken.lualoader.search", "Search")
 search_entry:SetPosX(15)
 search_entry:SetWidth(600)
+
+
 local function GO_SetSize(GO, width, height)
 	GO:SetWidth(width)
 	GO:SetHeight(height)
@@ -113,21 +114,14 @@ local function GO_SetPos(GO, width, height)
 	GO:SetPosY(height)
 end
 
-
-local temp_path = "lualoader/temp"
-local downloads_path = "lualoader/downloads"
-local autorun_file = "lualoader/autorun.txt"
-
 local function add_temp_lua(script_url, id)
 	local path = temp_path .. "/" .. id .. ".lua"
 	http.Get(script_url, function(content)
 		local f = file.Open(path, "w")
 		f:Write(content)
 		f:Close()
-			LoadScript(path)
+		LoadScript(path)
 	end)
-
-
 end
 
 local function remove_temp_lua(id)
@@ -151,7 +145,7 @@ local function remove_downloaded_lua(id)
 	UnloadScript(path)
 end
 
-function add_to_autorun(lua)
+local function add_to_autorun(lua)
 	if not string.match(file.Read("lualoader/autorun.txt"), lua) then
 		local f = file.Open("lualoader/autorun.txt", "a")
 		f:Write(lua .. ".lua\n")
@@ -159,18 +153,18 @@ function add_to_autorun(lua)
 	end
 end
 
-function remove_from_autorun(lua)
+local function remove_from_autorun(lua)
 	local new_autorun = RemoveLineFromMultiLine(file.Read("lualoader/autorun.txt"), lua .. ".lua")
 	local f = file.Open("lualoader/autorun.txt", "w")
 	f:Write(new_autorun)
 	f:Close()
 end
 
-function should_autorun(id)
+local function should_autorun(id)
 	return string.match(file.Read("lualoader/autorun.txt"), id)
 end
 
-function is_downloaded(id)
+local function is_downloaded(id)
 	local downloaded = false
 	file.Enumerate(function(fname)
 		if string.match(fname, "/") then
@@ -190,6 +184,7 @@ local script_boxes = {}
 
 local function CreateScriptBox(script_name, author, script_url, thread_url, display)
 	local script_box = {GO_objects = {}}
+	
 	-- Script data
 	script_box.script_name = script_name
 	script_box.author = author
@@ -282,21 +277,22 @@ local function CreateScriptBox(script_name, author, script_url, thread_url, disp
 	GO_SetPos(script_box.GO_objects.temp_run_btn, 130, -7); GO_SetPos(script_box.GO_objects.unload_btn, 130, -7); GO_SetPos(script_box.GO_objects.run_btn, 130, -7)
 	GO_SetPos(script_box.GO_objects.download_btn, 360, -7); GO_SetPos(script_box.GO_objects.uninstall_btn, 360, -7)
 		
-	if display then
-		y_pos_counter = y_pos_counter + 90
-		if script_box.autorun then
-			LoadScript(script_box.downloads_path)
-			script_box.running = true
-		end
-	else
-		script_box.GO_objects.header_gb:SetInvisible(true)
+	y_pos_counter = y_pos_counter + 90
+	if script_box.autorun then
+		print(script_box.autorun)
+		LoadScript(script_box.downloads_path)
+		script_box.running = true
 	end
+
+		
+	
 		
 	table.insert(script_boxes, script_box)	
 end
 
 
-function populate_with_scriptboxes(luas, filter)
+http.Get("https://raw.githubusercontent.com/Aimware0/LuaLoader/main/luas.txt", function(content)
+	local luas = split(content, "\n")
 	for k, lua in pairs(luas) do
 		local lua_data = split(lua, ",")
 		local lua_thread_link = lua_data[1]
@@ -304,40 +300,34 @@ function populate_with_scriptboxes(luas, filter)
 		local lua_name = lua_data[3]
 		local lua_url = lua_data[4]
 		
-		if filter then
-			print(filter)
-			CreateScriptBox(lua_author, lua_name, lua_url, lua_thread_link, filter(lua_thread_link, lua_author, lua_name, lua_url))
-		elseif not filter then
-			CreateScriptBox(lua_author, lua_name, lua_url, lua_thread_link, true)
+		CreateScriptBox(lua_author, lua_name, lua_url, lua_thread_link)
+	end
+end)
+
+
+local match = string.match
+local lower = string.lower
+
+function FilterScriptBoxes(filter)
+	y_pos_counter = 230
+	for k, script_box in pairs(script_boxes) do
+		if filter(script_box.script_name, script_box.author, script_box.script_url, script_box.thread_url) then
+			script_box.GO_objects.header_gb:SetInvisible(false)
+			GO_SetPos(script_box.GO_objects.header_gb, 10, y_pos_counter)
+			y_pos_counter = y_pos_counter + 90
+		else
+			script_box.GO_objects.header_gb:SetInvisible(true)
 		end
 	end
 end
 
-
-local luas = {}
-http.Get("https://raw.githubusercontent.com/Aimware0/LuaLoader/main/luas.txt", function(content)
-	luas = split(content, "\n")
-	populate_with_scriptboxes(luas)
-end)
-
-populate_with_scriptboxes(luas)
-
-
-local new_autorun = RemoveLineFromMultiLine(file.Read("lualoader/autorun.txt"), "143823.lua\n")
 local oSearchValue = ""
 callbacks.Register("Draw", "Chicken.lualoader.UI", function()
-	local search_value = search_entry:GetValue()
+	local search_value = string.lower(search_entry:GetValue())
 	if search_value ~= oSearchValue then
-		y_pos_counter = 230
-		for k, script_box in pairs(script_boxes) do
-			if string.match(string.lower(script_box.author), search_value) or string.match(string.lower(script_box.script_name), search_value) then
-				script_box.GO_objects.header_gb:SetInvisible(false)
-				GO_SetPos(script_box.GO_objects.header_gb, 10, y_pos_counter)
-				y_pos_counter = y_pos_counter + 90
-			else
-				script_box.GO_objects.header_gb:SetInvisible(true)
-			end
-		end
+		FilterScriptBoxes(function(script_name, script_author, script_url, script_thread_url)
+			return match(lower(script_name), search_value) or match(lower(script_author), search_value)
+		end)
 		oSearchValue = search_value
 	end
 	
