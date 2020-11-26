@@ -1,4 +1,4 @@
-local version = "VERSION 2.141"
+local version = "VERSION 2.142"
 local version_url = "https://raw.githubusercontent.com/Aimware0/LuaLoader/main/version.txt"
 
 -- pasted functions
@@ -230,7 +230,7 @@ local function CreateScriptBox(script_name, author, script_url, thread_url, disp
 
 	
 	script_box.downloads_path = "lualoader/downloads/" .. script_box.id .. ".lua"
-	script_box.temp_path = "lualoader/temp/temp" ..script_box.id .. ".lua"
+	script_box.temp_path = "lualoader/temp/" ..script_box.id .. ".lua"
 
 	script_box.GO_objects.run_btn = gui.Button(script_box.GO_objects.header_gb, "Run", function()
 		LoadScript(script_box.downloads_path)
@@ -265,9 +265,7 @@ local function CreateScriptBox(script_name, author, script_url, thread_url, disp
 		
 		script_box.downloaded = false
 		script_box.running = false
-		print("Uninstalling..")
 		if script_box.autorun then
-			print("Disabling autorun..")
 			remove_from_autorun(script_box.id)
 			script_box.GO_objects.autorun_cb:SetValue(false)
 		end
@@ -282,8 +280,6 @@ local function CreateScriptBox(script_name, author, script_url, thread_url, disp
 		
 	y_pos_counter = y_pos_counter + 90
 	if script_box.autorun then
-		print("AUTORUN", script_box.autorun)
-		print(script_box.autorun)
 		LoadScript(script_box.downloads_path)
 		script_box.running = true
 	end
