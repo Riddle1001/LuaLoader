@@ -1,4 +1,4 @@
-local version = "VERSION 2.12"
+local version = "VERSION 2.13"
 local version_url = "https://raw.githubusercontent.com/Aimware0/LuaLoader/main/version.txt"
 
 -- pasted functions
@@ -188,12 +188,15 @@ end
 local y_pos_counter = 230
 local script_boxes = {}
 
-local function CreateScriptBox(script_name, author, script_url, thread_url)
+local function CreateScriptBox(script_name, author, script_url, thread_url, display)
 	local script_box = {GO_objects = {}}
+	-- Script data
+	script_box.script_name = script_name
+	script_box.author = author
+	script_box.script_url = script_url
+	script_box.thread_url = thread_url
 	
 	script_box.GO_objects.header_gb = gui.Groupbox(lualoader_tab, "        " .. script_name, 10, y_pos_counter, 610, 0)
-	
-	y_pos_counter = y_pos_counter + 90
 
 	script_box.GO_objects.autorun_cb = gui.Checkbox(script_box.GO_objects.header_gb, "Chicken.lualoader.checkbox", "", false)
 	script_box.oautorun_cb_v = script_box.GO_objects.autorun_cb:GetValue()
@@ -210,6 +213,8 @@ local function CreateScriptBox(script_name, author, script_url, thread_url)
 	
 	GO_SetPos(script_box.GO_objects.autorun_cb, 0, -36)
 	GO_SetSize(script_box.GO_objects.autorun_cb, 22, 22)
+	
+	
 	
 	local forum_link = gui.Button(script_box.GO_objects.header_gb, "Forum thread", function()
 		 panorama.RunScript('SteamOverlayAPI.OpenExternalBrowserURL("' .. string.gsub(thread_url, "[\r\n]", "") .. '")')
@@ -277,12 +282,16 @@ local function CreateScriptBox(script_name, author, script_url, thread_url)
 	GO_SetPos(script_box.GO_objects.temp_run_btn, 130, -7); GO_SetPos(script_box.GO_objects.unload_btn, 130, -7); GO_SetPos(script_box.GO_objects.run_btn, 130, -7)
 	GO_SetPos(script_box.GO_objects.download_btn, 360, -7); GO_SetPos(script_box.GO_objects.uninstall_btn, 360, -7)
 		
-
-	if script_box.autorun then
-		LoadScript(script_box.downloads_path)
-		script_box.running = true
+	if display then
+		y_pos_counter = y_pos_counter + 90
+		if script_box.autorun then
+			LoadScript(script_box.downloads_path)
+			script_box.running = true
+		end
+	else
+		script_box.GO_objects.header_gb:SetInvisible(true)
 	end
-	
+		
 	table.insert(script_boxes, script_box)	
 end
 
@@ -295,13 +304,15 @@ function populate_with_scriptboxes(luas, filter)
 		local lua_name = lua_data[3]
 		local lua_url = lua_data[4]
 		
-		if filter and filter(lua_thread_link, lua_author, lua_name, lua_url) then
-			CreateScriptBox(lua_author, lua_name, lua_url, lua_thread_link)
+		if filter then
+			print(filter)
+			CreateScriptBox(lua_author, lua_name, lua_url, lua_thread_link, filter(lua_thread_link, lua_author, lua_name, lua_url))
 		elseif not filter then
-			CreateScriptBox(lua_author, lua_name, lua_url, lua_thread_link)
+			CreateScriptBox(lua_author, lua_name, lua_url, lua_thread_link, true)
 		end
 	end
 end
+
 
 local luas = {}
 http.Get("https://raw.githubusercontent.com/Aimware0/LuaLoader/main/luas.txt", function(content)
@@ -309,7 +320,7 @@ http.Get("https://raw.githubusercontent.com/Aimware0/LuaLoader/main/luas.txt", f
 	populate_with_scriptboxes(luas)
 end)
 
-
+populate_with_scriptboxes(luas)
 
 
 local new_autorun = RemoveLineFromMultiLine(file.Read("lualoader/autorun.txt"), "143823.lua\n")
@@ -317,23 +328,17 @@ local oSearchValue = ""
 callbacks.Register("Draw", "Chicken.lualoader.UI", function()
 	local search_value = search_entry:GetValue()
 	if search_value ~= oSearchValue then
-		y_pos_counter = 250
+		y_pos_counter = 230
 		for k, script_box in pairs(script_boxes) do
-			for k, GO_object in pairs(script_box.GO_objects) do
-				GO_object:SetInvisible(true)
-				-- GO_object:Remove() -- For some reason, even when I remove each gui object, (or when I remove the parent of all the gui objects, the groupbox), CSGO crashes on LuaLoader unload.
-				-- Using SetInvisible rather than :Remove might have memory problems if the lua is used for a long period of time.. I don't know if it'll be noticeable by the user.
+			if string.match(string.lower(script_box.author), search_value) or string.match(string.lower(script_box.script_name), search_value) then
+				script_box.GO_objects.header_gb:SetInvisible(false)
+				GO_SetPos(script_box.GO_objects.header_gb, 10, y_pos_counter)
+				y_pos_counter = y_pos_counter + 90
+			else
+				script_box.GO_objects.header_gb:SetInvisible(true)
 			end
 		end
-		
-		script_boxes = {}
-		
-		populate_with_scriptboxes(luas, function(lua_thread_link, lua_author, lua_name, lua_url)
-			local search_value = string.lower(search_value)
-			return string.match(string.lower(lua_author), search_value) or string.match(string.lower(lua_name), search_value)
-		end)
 		oSearchValue = search_value
-		
 	end
 	
 	for k, script_box in pairs(script_boxes) do
