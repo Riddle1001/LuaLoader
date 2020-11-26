@@ -1,4 +1,4 @@
-local version = "VERSION 2.14"
+local version = "VERSION 2.141"
 local version_url = "https://raw.githubusercontent.com/Aimware0/LuaLoader/main/version.txt"
 
 -- pasted functions
@@ -201,6 +201,7 @@ local function CreateScriptBox(script_name, author, script_url, thread_url, disp
 	script_box.running = false
 		
 	script_box.autorun = should_autorun(script_box.id)
+	
 	script_box.GO_objects.autorun_cb:SetValue(script_box.autorun)
 
 	script_box.downloaded = is_downloaded(script_box.id)
@@ -210,22 +211,23 @@ local function CreateScriptBox(script_name, author, script_url, thread_url, disp
 	GO_SetSize(script_box.GO_objects.autorun_cb, 22, 22)
 	
 	
-	
 	local forum_link = gui.Button(script_box.GO_objects.header_gb, "Forum thread", function()
 		 panorama.RunScript('SteamOverlayAPI.OpenExternalBrowserURL("' .. string.gsub(thread_url, "[\r\n]", "") .. '")')
-	end)
-	
-	local script_link = gui.Button(script_box.GO_objects.header_gb, "Script link", function()
-		 panorama.RunScript('SteamOverlayAPI.OpenExternalBrowserURL("' .. string.gsub(script_url, "[\r\n]", "") .. '")')
 	end)
 	
 	GO_SetPos(forum_link, 370,-42)
 	GO_SetSize(forum_link, 100, 20)
 	
+
+	local script_link = gui.Button(script_box.GO_objects.header_gb, "Script link", function()
+		 panorama.RunScript('SteamOverlayAPI.OpenExternalBrowserURL("' .. string.gsub(script_url, "[\r\n]", "") .. '")')
+	end)
+	
 	GO_SetPos(script_link, 480,-42)
 	GO_SetSize(script_link, 100, 20)
 
 	local author_text = gui.Text(script_box.GO_objects.header_gb, "Author: " .. author)
+
 	
 	script_box.downloads_path = "lualoader/downloads/" .. script_box.id .. ".lua"
 	script_box.temp_path = "lualoader/temp/temp" ..script_box.id .. ".lua"
@@ -243,7 +245,7 @@ local function CreateScriptBox(script_name, author, script_url, thread_url, disp
 		script_box.running = true
 	end)
 	
-		
+
 	script_box.GO_objects.unload_btn = gui.Button(script_box.GO_objects.header_gb, "Unload", function()
 		UnloadScript(script_box.downloads_path)
 		
@@ -251,7 +253,7 @@ local function CreateScriptBox(script_name, author, script_url, thread_url, disp
 		script_box.running = false	
 	end)
 	
-	---------------------
+	---------------------------------------------------------------------------------------------------------
 	
 	script_box.GO_objects.download_btn = gui.Button(script_box.GO_objects.header_gb, "Download", function()
 		add_downlaod_lua(script_url, script_box.id)
@@ -263,10 +265,11 @@ local function CreateScriptBox(script_name, author, script_url, thread_url, disp
 		
 		script_box.downloaded = false
 		script_box.running = false
-		
+		print("Uninstalling..")
 		if script_box.autorun then
+			print("Disabling autorun..")
 			remove_from_autorun(script_box.id)
-			script_box.autorun_cb:SetValue(false)
+			script_box.GO_objects.autorun_cb:SetValue(false)
 		end
 	end)
 	
@@ -279,6 +282,7 @@ local function CreateScriptBox(script_name, author, script_url, thread_url, disp
 		
 	y_pos_counter = y_pos_counter + 90
 	if script_box.autorun then
+		print("AUTORUN", script_box.autorun)
 		print(script_box.autorun)
 		LoadScript(script_box.downloads_path)
 		script_box.running = true
@@ -342,6 +346,10 @@ callbacks.Register("Draw", "Chicken.lualoader.UI", function()
 		
 		
 		script_box.GO_objects.autorun_cb:SetDisabled(not script_box.downloaded)
+		
+		-- if script_box.id == match(script_box.id, "144909") then
+			-- print(script_box.downloaded)
+		-- end
 		
 		if script_box.GO_objects.autorun_cb:GetValue() ~= script_box.oautorun_cb_v then
 			
