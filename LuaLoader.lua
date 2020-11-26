@@ -1,4 +1,4 @@
-local version = "VERSION 2.1"
+local version = "VERSION 2.11"
 local version_url = "https://raw.githubusercontent.com/Aimware0/LuaLoader/main/version.txt"
 
 -- pasted functions
@@ -34,13 +34,13 @@ http.Get(version_url, function(content)
         local old = file.Open(GetScriptName(), "w")
         old:Write(new_version)
         old:Close()
-	print("[LuaLoader] updated")
-	UnloadScript(GetScriptName())
+		
+		print("[LuaLoader] updated")
+		UnloadScript(GetScriptName())
 	end
 end)
 
 oReference = oReference or gui.Reference 
-
 function gui.Reference(...)
 	pprint(...)
 	return oReference(...)
@@ -53,7 +53,6 @@ local function lualoaderFolderExists()
 		if string.match(fname, "/") then
 			if string.sub(fname, 1, 9) == "lualoader" then
 				exists = true
-				return
 			end
 		end
 	end)
@@ -349,7 +348,7 @@ local UNLOAD_ALL = gui.Button(lualoader_tab, "Unload all", function()
 	for k, script_box in pairs(script_boxes) do
 		if script_box.running then
 			UnloadScript(script_box.temp_path)
-			UnloadScript(script_box.download_path)
+			UnloadScript(script_box.downloads_path)
 			script_box.running = false
 		end
 	end
@@ -367,5 +366,3 @@ callbacks.Register("Unload", "Chicken.lualoader.unloadluas", function()
 	end
 	ClearTempLuas()
 end)
-
-
