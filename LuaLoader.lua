@@ -1,4 +1,4 @@
-local version = "VERSION 2.11"
+local version = "VERSION 2.12"
 local version_url = "https://raw.githubusercontent.com/Aimware0/LuaLoader/main/version.txt"
 
 -- pasted functions
@@ -91,9 +91,8 @@ for k, lua in pairs(autorun_luas) do
 	
 end
 
-local lualoader_tab = gui.Tab(gui.Reference("Settings"), "chicken.lualoader.tab", "Lua loader")
+local lualoader_tab = gui.Tab(gui.Reference("Settings"), "Chicken.lualoader.tab", "Lua loader")
 local readme_gb = gui.Groupbox(lualoader_tab, "README | " .. version, 10, 10, 610, 0)
-
 
 
 local redme_text = gui.Text(readme_gb, readme)
@@ -101,7 +100,9 @@ http.Get("https://raw.githubusercontent.com/Aimware0/LuaLoader/main/README.md", 
 	redme_text:SetText(content)
 end)
 
-
+local search_entry = gui.Editbox(lualoader_tab, "Chicken.lualoader.search", "Search")
+search_entry:SetPosX(15)
+search_entry:SetWidth(600)
 local function GO_SetSize(GO, width, height)
 	GO:SetWidth(width)
 	GO:SetHeight(height)
@@ -184,37 +185,37 @@ function is_downloaded(id)
 end
 
 
-local y_pos_counter = 145
+local y_pos_counter = 230
 local script_boxes = {}
 
 local function CreateScriptBox(script_name, author, script_url, thread_url)
-	local script_box = {}
-	local script_box_gb = gui.Groupbox(lualoader_tab, "        " .. script_name, 10, y_pos_counter, 610, 0)
+	local script_box = {GO_objects = {}}
 	
-	script_box.autorun_cb = gui.Checkbox(script_box_gb, "chicken.lualoader.checkbox", "", false)
-	script_box.oautorun_cb_v = script_box.autorun_cb:GetValue()
+	script_box.GO_objects.header_gb = gui.Groupbox(lualoader_tab, "        " .. script_name, 10, y_pos_counter, 610, 0)
+	
+	y_pos_counter = y_pos_counter + 90
+
+	script_box.GO_objects.autorun_cb = gui.Checkbox(script_box.GO_objects.header_gb, "Chicken.lualoader.checkbox", "", false)
+	script_box.oautorun_cb_v = script_box.GO_objects.autorun_cb:GetValue()
 	
 	script_box.id = get_thread_id(thread_url)
 
 	script_box.running = false
-	script_box.autorun = false
 		
 	script_box.autorun = should_autorun(script_box.id)
-	script_box.autorun_cb:SetValue(script_box.autorun)
+	script_box.GO_objects.autorun_cb:SetValue(script_box.autorun)
 
 	script_box.downloaded = is_downloaded(script_box.id)
 	
-
 	
+	GO_SetPos(script_box.GO_objects.autorun_cb, 0, -36)
+	GO_SetSize(script_box.GO_objects.autorun_cb, 22, 22)
 	
-	GO_SetPos(script_box.autorun_cb, 0, -36)
-	GO_SetSize(script_box.autorun_cb, 22, 22)
-	
-	local forum_link = gui.Button(script_box_gb, "Forum thread", function()
+	local forum_link = gui.Button(script_box.GO_objects.header_gb, "Forum thread", function()
 		 panorama.RunScript('SteamOverlayAPI.OpenExternalBrowserURL("' .. string.gsub(thread_url, "[\r\n]", "") .. '")')
 	end)
 	
-	local script_link = gui.Button(script_box_gb, "Script link", function()
+	local script_link = gui.Button(script_box.GO_objects.header_gb, "Script link", function()
 		 panorama.RunScript('SteamOverlayAPI.OpenExternalBrowserURL("' .. string.gsub(script_url, "[\r\n]", "") .. '")')
 	end)
 	
@@ -224,45 +225,40 @@ local function CreateScriptBox(script_name, author, script_url, thread_url)
 	GO_SetPos(script_link, 480,-42)
 	GO_SetSize(script_link, 100, 20)
 
-	
-	local author_text = gui.Text(script_box_gb, "Author: " .. author)
-	
+	local author_text = gui.Text(script_box.GO_objects.header_gb, "Author: " .. author)
 	
 	script_box.downloads_path = "lualoader/downloads/" .. script_box.id .. ".lua"
 	script_box.temp_path = "lualoader/temp/temp" ..script_box.id .. ".lua"
-	---------------------
 
-	script_box.run_btn = gui.Button(script_box_gb, "Run", function()
+	script_box.GO_objects.run_btn = gui.Button(script_box.GO_objects.header_gb, "Run", function()
 		LoadScript(script_box.downloads_path)
 		script_box.running = true
 	end)
 	
-
-	script_box.temp_run_btn = gui.Button(script_box_gb, "Temp run", function() 
+	
+	script_box.GO_objects.temp_run_btn = gui.Button(script_box.GO_objects.header_gb, "Temp run", function() 
 		add_temp_lua(script_url, script_box.id)
 		
 		last_script_loaded = script_name
 		script_box.running = true
 	end)
 	
-	
-	
-	script_box.unload_btn = gui.Button(script_box_gb, "Unload", function()
+		
+	script_box.GO_objects.unload_btn = gui.Button(script_box.GO_objects.header_gb, "Unload", function()
 		UnloadScript(script_box.downloads_path)
 		
 		remove_temp_lua(script_box.id)
 		script_box.running = false	
 	end)
-	---------------------
-	
 	
 	---------------------
-	script_box.download_btn = gui.Button(script_box_gb, "Download", function()
+	
+	script_box.GO_objects.download_btn = gui.Button(script_box.GO_objects.header_gb, "Download", function()
 		add_downlaod_lua(script_url, script_box.id)
 		script_box.downloaded = true
 	end)
 	
-	script_box.uninstall_btn = gui.Button(script_box_gb, "Uninstall", function()
+	script_box.GO_objects.uninstall_btn = gui.Button(script_box.GO_objects.header_gb, "Uninstall", function()
 		remove_downloaded_lua(script_box.id)
 		
 		script_box.downloaded = false
@@ -273,64 +269,88 @@ local function CreateScriptBox(script_name, author, script_url, thread_url)
 			script_box.autorun_cb:SetValue(false)
 		end
 	end)
-	---------------------
-	
-	GO_SetSize(script_box.temp_run_btn, 220, 25); GO_SetSize(script_box.unload_btn, 220, 25); GO_SetSize(script_box.run_btn, 220, 25)
-	GO_SetSize(script_box.download_btn, 220, 25); GO_SetSize(script_box.uninstall_btn, 220, 25)
-	
-	GO_SetPos(script_box.temp_run_btn, 130, -7); GO_SetPos(script_box.unload_btn, 130, -7); GO_SetPos(script_box.run_btn, 130, -7)
-	GO_SetPos(script_box.download_btn, 360, -7); GO_SetPos(script_box.uninstall_btn, 360, -7)
 	
 	
+	GO_SetSize(script_box.GO_objects.temp_run_btn, 220, 25); GO_SetSize(script_box.GO_objects.unload_btn, 220, 25); GO_SetSize(script_box.GO_objects.run_btn, 220, 25)
+	GO_SetSize(script_box.GO_objects.download_btn, 220, 25); GO_SetSize(script_box.GO_objects.uninstall_btn, 220, 25)
 	
-	y_pos_counter = y_pos_counter + 90
-	
+	GO_SetPos(script_box.GO_objects.temp_run_btn, 130, -7); GO_SetPos(script_box.GO_objects.unload_btn, 130, -7); GO_SetPos(script_box.GO_objects.run_btn, 130, -7)
+	GO_SetPos(script_box.GO_objects.download_btn, 360, -7); GO_SetPos(script_box.GO_objects.uninstall_btn, 360, -7)
+		
+
 	if script_box.autorun then
 		LoadScript(script_box.downloads_path)
 		script_box.running = true
 	end
 	
-	
 	table.insert(script_boxes, script_box)	
 end
 
 
-
-http.Get("https://raw.githubusercontent.com/Aimware0/LuaLoader/main/luas.txt", function(content)
-	local luas = split(content, "\n")
+function populate_with_scriptboxes(luas, filter)
 	for k, lua in pairs(luas) do
 		local lua_data = split(lua, ",")
-		
 		local lua_thread_link = lua_data[1]
 		local lua_author = lua_data[2]
 		local lua_name = lua_data[3]
 		local lua_url = lua_data[4]
 		
-		CreateScriptBox(lua_author, lua_name, lua_url, lua_thread_link)
+		if filter and filter(lua_thread_link, lua_author, lua_name, lua_url) then
+			CreateScriptBox(lua_author, lua_name, lua_url, lua_thread_link)
+		elseif not filter then
+			CreateScriptBox(lua_author, lua_name, lua_url, lua_thread_link)
+		end
 	end
+end
+
+local luas = {}
+http.Get("https://raw.githubusercontent.com/Aimware0/LuaLoader/main/luas.txt", function(content)
+	luas = split(content, "\n")
+	populate_with_scriptboxes(luas)
 end)
 
 
 
+
 local new_autorun = RemoveLineFromMultiLine(file.Read("lualoader/autorun.txt"), "143823.lua\n")
-
-
+local oSearchValue = ""
 callbacks.Register("Draw", "Chicken.lualoader.UI", function()
+	local search_value = search_entry:GetValue()
+	if search_value ~= oSearchValue then
+		y_pos_counter = 250
+		for k, script_box in pairs(script_boxes) do
+			for k, GO_object in pairs(script_box.GO_objects) do
+				GO_object:SetInvisible(true)
+				-- GO_object:Remove() -- For some reason, even when I remove each gui object, (or when I remove the parent of all the gui objects, the groupbox), CSGO crashes on LuaLoader unload.
+				-- Using SetInvisible rather than :Remove might have memory problems if the lua is used for a long period of time.. I don't know if it'll be noticeable by the user.
+			end
+		end
+		
+		script_boxes = {}
+		
+		populate_with_scriptboxes(luas, function(lua_thread_link, lua_author, lua_name, lua_url)
+			local search_value = string.lower(search_value)
+			return string.match(string.lower(lua_author), search_value) or string.match(string.lower(lua_name), search_value)
+		end)
+		oSearchValue = search_value
+		
+	end
+	
 	for k, script_box in pairs(script_boxes) do
-		script_box.run_btn:SetInvisible(script_box.running or not script_box.downloaded)
+		script_box.GO_objects.run_btn:SetInvisible(script_box.running or not script_box.downloaded)
 		
-		script_box.temp_run_btn:SetInvisible(script_box.running or script_box.downloaded)
-		script_box.unload_btn:SetInvisible(not script_box.running)
+		script_box.GO_objects.temp_run_btn:SetInvisible(script_box.running or script_box.downloaded)
+		script_box.GO_objects.unload_btn:SetInvisible(not script_box.running)
 		
-		script_box.download_btn:SetInvisible(script_box.downloaded)
-		script_box.uninstall_btn:SetInvisible(not script_box.downloaded)
+		script_box.GO_objects.download_btn:SetInvisible(script_box.downloaded)
+		script_box.GO_objects.uninstall_btn:SetInvisible(not script_box.downloaded)
 		
 		
-		script_box.autorun_cb:SetDisabled(not script_box.downloaded)
+		script_box.GO_objects.autorun_cb:SetDisabled(not script_box.downloaded)
 		
-		if script_box.autorun_cb:GetValue() ~= script_box.oautorun_cb_v then
+		if script_box.GO_objects.autorun_cb:GetValue() ~= script_box.oautorun_cb_v then
 			
-			if script_box.autorun_cb:GetValue() then
+			if script_box.GO_objects.autorun_cb:GetValue() then
 				add_to_autorun(script_box.id)
 				script_box.autorun = true
 			else
@@ -338,7 +358,7 @@ callbacks.Register("Draw", "Chicken.lualoader.UI", function()
 				script_box.autorun = false
 			end
 
-			script_box.oautorun_cb_v = script_box.autorun_cb:GetValue()
+			script_box.oautorun_cb_v = script_box.GO_objects.autorun_cb:GetValue()
 		end
 	end
 end)
@@ -361,7 +381,8 @@ GO_SetSize(UNLOAD_ALL, 65, 15)
 callbacks.Register("Unload", "Chicken.lualoader.unloadluas", function()
 	for k, script_box in pairs(script_boxes) do
 		if script_box.running then
-			UnloadScript(script_box.path)
+			UnloadScript(script_box.temp_path)
+			UnloadScript(script_box.downloads_path)
 		end
 	end
 	ClearTempLuas()
