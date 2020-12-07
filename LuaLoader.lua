@@ -1,4 +1,4 @@
-local version = "VERSION 2.21"
+local version = "VERSION 2.22"
 local version_url = "https://raw.githubusercontent.com/Aimware0/LuaLoader/main/version.txt"
 
 -- pasted functions
@@ -78,7 +78,6 @@ local downloads_path = "lualoader/downloads"
 local autorun_file = "lualoader/autorun.txt"
 local external_downloads_file = "lualoader/external_downloads.txt"
 
-file.Open(external_downloads_file, "w"):Close()
 
 if not lualoaderFolderExists() then
 	local path = temp_path .. "/temp.txt"
@@ -95,6 +94,8 @@ if not lualoaderFolderExists() then
 	
 end
 ClearTempLuas()
+file.Open(external_downloads_file, "w"):Close()
+
 
 local function GO_SetSize(GO, width, height)
 	GO:SetWidth(width)
