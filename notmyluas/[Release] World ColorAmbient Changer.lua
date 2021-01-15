@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Spekbillen
--- Title [Release] World Color/Ambient Changer
+-- Title [Release] World ColorAmbient Changer
 -- Forum link https://aimware.net/forum/thread/133504
 
 local ref = gui.Reference("Visuals", "World");

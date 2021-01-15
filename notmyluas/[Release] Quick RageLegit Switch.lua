@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: DaveLTC
--- Title [Release] Quick Rage/Legit Switch
+-- Title [Release] Quick RageLegit Switch
 -- Forum link https://aimware.net/forum/thread/128904
 
 -- Thank you for using my script. If you like it recommend me. Special Thanks to superyu'#7167 aka. Clipper whose fakelaggFix.lua was used as a template.

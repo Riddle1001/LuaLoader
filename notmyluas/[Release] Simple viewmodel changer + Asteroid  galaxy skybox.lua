@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: skeltalaus
--- Title [Release] Simple viewmodel changer + Asteroid / galaxy skybox
+-- Title [Release] Simple viewmodel changer + Asteroid  galaxy skybox
 -- Forum link https://aimware.net/forum/thread/132711
 
 callbacks.Register("FireGameEvent", function(event)

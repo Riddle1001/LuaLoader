@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: 90D5p33D
--- Title [Release] Double Tap/Fire Key
+-- Title [Release] Double TapFire Key
 -- Forum link https://aimware.net/forum/thread/129285
 
 local ref = gui.Reference("Misc", "Enhancement", "Fakelag")

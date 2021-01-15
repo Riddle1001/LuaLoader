@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Xiehwei
--- Title [Release] midnight v1.2 [New Desync update 3/11/20]
+-- Title [Release] midnight v1.2 [New Desync update 31120]
 -- Forum link https://aimware.net/forum/thread/144048
 
 --handle menu font

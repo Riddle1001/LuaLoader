@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: helloabcdf123
--- Title [Release] Rank/Wins reveal on comp/wingman
+-- Title [Release] RankWins reveal on compwingman
 -- Forum link https://aimware.net/forum/thread/140581
 
 

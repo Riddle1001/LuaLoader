@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: PRATINHAZ
--- Title [Release] Hit/Misses Counter (AIMWARE V5)
+-- Title [Release] HitMisses Counter (AIMWARE V5)
 -- Forum link https://aimware.net/forum/thread/129518
 
 local hit_window = gui.Window("window.count", "Hit Counter", 10, 400, 100, 130)

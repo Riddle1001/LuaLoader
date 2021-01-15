@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: thekorol
--- Title [Release] Head on key | Override Hitbox+MinDmg+Hitchance
+-- Title [Release] Head on key  Override Hitbox+MinDmg+Hitchance
 -- Forum link https://aimware.net/forum/thread/141222
 
 

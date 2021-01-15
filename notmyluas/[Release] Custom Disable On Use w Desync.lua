@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: helloabcdf123
--- Title [Release] Custom Disable On Use w/ Desync
+-- Title [Release] Custom Disable On Use w Desync
 -- Forum link https://aimware.net/forum/thread/140369
 
 

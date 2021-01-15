@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: razor50333
--- Title [Release] Enemy/friendly pingspike indicator
+-- Title [Release] Enemyfriendly pingspike indicator
 -- Forum link https://aimware.net/forum/thread/144038
 
 

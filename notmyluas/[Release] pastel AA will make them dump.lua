@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: windex6969
--- Title [Release] pastel AA: will make them dump
+-- Title [Release] pastel AA will make them dump
 -- Forum link https://aimware.net/forum/thread/131023
 
 rotate = 1

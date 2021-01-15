@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: atk3001
--- Title [Release] FOV and Viewmodel Changer (With Zoom/Scope Fix)
+-- Title [Release] FOV and Viewmodel Changer (With ZoomScope Fix)
 -- Forum link https://aimware.net/forum/thread/132424
 
 localREF=gui.Reference("Settings")
