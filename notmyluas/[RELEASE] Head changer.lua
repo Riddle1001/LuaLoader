@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Cheeseot
--- Title [RELEASE] Head changer
+-- Title [Release] Head changer
 -- Forum link https://aimware.net/forum/thread/139569
 
 local editbox = gui.Editbox(gui.Reference("visuals", "other", "extra"), "headesp", "Head ESP image link")

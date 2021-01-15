@@ -1,0 +1,45 @@
+-- Scraped by chicken
+-- Author: password
+-- Title [Release] low health alert script
+-- Forum link https://aimware.net/forum/thread/86382
+
+
+local last_call = globals.TickCount( );
+
+function draw_health_alert( ) 
+  local local_player = entities.GetLocalPlayer( );
+  local w,h = draw.GetScreenSize( );
+  if ( local_player and local_player:IsAlive( ) and local_player:GetHealth( ) < 27 and globals.TickCount( ) - last_call > 54 ) then
+    draw.Color( 255,0,0,183 );
+    draw.RoundedRectFill( 1, 1, w, h );
+    last_call = globals.TickCount( );
+  end
+
+end
+
+callbacks.Register( "Draw", "drawhealthalert", draw_health_alert );
+-- Scraped by chicken
+-- Author: password
+-- Title [Release] low health alert script
+-- Forum link https://aimware.net/forum/thread/88373
+
+
+local last_spam = globals.TickCount( );
+
+function draw_low_health( )
+	local x, h = draw.GetScreenSize();
+	
+  local player = entities.GetLocalPlayer( );
+	if (player ~= nil and player:IsAlive( ) ) then
+	  local player_health = player:GetHealth( );
+		if ( player_health <= 25 ) then
+		  if globals.TickCount( ) - last_spam > 39 then
+			  draw.Color( 255, 0, 0, 88 );
+		    draw.RoundedRectFill( 0, 0, x, h );
+			  last_spam = globals.TickCount( )
+			end
+		end
+	end
+end
+
+callbacks.Register( "Draw", "draw_low_health", draw_low_health );

@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: PanSmuggler
--- Title [RELEASE] Global killsay microphone (fixed)
+-- Title [Release] Global killsay microphone (fixed)
 -- Forum link https://aimware.net/forum/thread/140382
 
 -- get sound file here: https://anonfile.com/10Y4X6j4o4/voice_input_wav

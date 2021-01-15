@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Zinn
--- Title [RELEASE] Auto Report for V5
+-- Title [Release] Auto Report for V5
 -- Forum link https://aimware.net/forum/thread/138638
 
 localGUI_TAB=gui.Tab(gui.Reference("Misc"),"autoreport","AutoReport")

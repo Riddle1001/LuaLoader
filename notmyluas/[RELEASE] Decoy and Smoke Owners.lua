@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: nazefx
--- Title [RELEASE] Decoy and Smoke Owners
+-- Title [Release] Decoy and Smoke Owners
 -- Forum link https://aimware.net/forum/thread/134416
 
 local active = gui.Checkbox( gui.Reference( 'Visuals', 'World', 'Nade' ), 'esp.world.grenadeowner', 'Grenade Owner', 0 )
@@ -74,36 +74,36 @@ local function draw_smokes(team, index)
 end
 
 callbacks.Register( 'FireGameEvent', function(e)
-	if e:GetName() == 'grenade_thrown' then
-		if e:GetString('weapon') == 'incgrenade' or e:GetString('weapon') == 'molotov' then
-			local throwerid = e:GetInt('userid')
-			table.insert(throwername, client.GetPlayerNameByUserID( throwerid ))
-			if e:GetName() == 'inferno_extinguish' or e:GetName() == 'inferno_expire' then
-				table.remove(throwername, 1) 
-				inferno = {};
-				left = 0;
-			end
-		end
-	end
+ if e:GetName() == 'grenade_thrown' then
+ if e:GetString('weapon') == 'incgrenade' or e:GetString('weapon') == 'molotov' then
+ local throwerid = e:GetInt('userid')
+ table.insert(throwername, client.GetPlayerNameByUserID( throwerid ))
+ if e:GetName() == 'inferno_extinguish' or e:GetName() == 'inferno_expire' then
+ table.remove(throwername, 1) 
+ inferno = {};
+ left = 0;
+ end
+ end
+ end
 end)
 
 local function event(e)
-	if (not active:GetValue() or GetLocalPlayer == nil or cb:GetValue() == 0 or cb:GetValue() == 1) then return end
+ if (not active:GetValue() or GetLocalPlayer == nil or cb:GetValue() == 0 or cb:GetValue() == 1) then return end
   if e:GetName() == 'inferno_startburn' then
     inferno[#inferno + 1] = {
       position = Vector3(e:GetFloat('x'), e:GetFloat('y'), e:GetFloat('z')),
       duration = CurTime() + dur
     }
-	end
-	if e:GetName() == 'round_prestart' then
-		inferno = {};
-		left = 0;
-	end
+ end
+ if e:GetName() == 'round_prestart' then
+ inferno = {};
+ left = 0;
+ end
 end
 
 local function on_draw()
-	if (not active:GetValue() or GetLocalPlayer == nil or cb:GetValue() == 0 or cb:GetValue() == 1) then return end
-	local lp = GetLocalPlayer()
+ if (not active:GetValue() or GetLocalPlayer == nil or cb:GetValue() == 0 or cb:GetValue() == 1) then return end
+ local lp = GetLocalPlayer()
   for i=1, #inferno do
     local fire = inferno[i]
     
@@ -112,10 +112,10 @@ local function on_draw()
       local X, Y = WorldToScreen(fire.position)
       local text = 'Fire - '.. format('%.1f', left)
       local tW, tH = GetTextSize(text)
-			Text(X - (tW*0.5), Y, text)
-			Text(X - 18, Y - 20, throwername[1])
-		end
-	end
+ Text(X - (tW*0.5), Y, text)
+ Text(X - 18, Y - 20, throwername[1])
+ end
+ end
 end
 
 
@@ -124,11 +124,10 @@ callbacks.Register('FireGameEvent', event)
 callbacks.Register('Draw', on_draw)
 
 callbacks.Register('Draw', function()
-	local lp = entities.GetLocalPlayer()
+ local lp = entities.GetLocalPlayer()
   local my_index = lp:GetIndex()
   local my_team = lp:GetTeamNumber()
 
   draw_decoys(my_team, my_index)
   draw_smokes(my_team, my_index)
 end)
-[/i][/i][/i]

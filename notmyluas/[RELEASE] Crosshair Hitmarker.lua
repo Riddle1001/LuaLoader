@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: merda
--- Title [RELEASE] Crosshair Hitmarker
+-- Title [Release] Crosshair Hitmarker
 -- Forum link https://aimware.net/forum/thread/135715
 
 --crosshairhitmarker

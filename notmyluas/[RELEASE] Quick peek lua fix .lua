@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: tusharlunia9
--- Title [RELEASE] Quick peek lua fix 
+-- Title [Release] Quick peek lua fix 
 -- Forum link https://aimware.net/forum/thread/144095
 
 
@@ -48,7 +48,6 @@ draw.Line(cur_point[1], cur_point[2], old_point[1], old_point[2]);
     end
     
   end
-
 end
 
 callbacks.Register( "Draw", function()
