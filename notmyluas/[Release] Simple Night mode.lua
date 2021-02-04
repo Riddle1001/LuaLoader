@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: adrianobessa5682
--- Title [Release] Simple Night mode
+-- Title [Release] Simple Night Mode
 -- Forum link https://aimware.net/forum/thread/127599
 
 print("Loaded Aimware Simple Night mode Lua by Starlordaiden")

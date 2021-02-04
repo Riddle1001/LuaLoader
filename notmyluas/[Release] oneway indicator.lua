@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Chicken4676
--- Title [Release] oneway indicator
+-- Title [Release] Oneway Indicator
 -- Forum link https://aimware.net/forum/thread/133713
 
 -- json https://raw.githubusercontent.com/rxi/json.lua/master/json.lua

@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: il-marc
--- Title [Release] team damage scoreboard
+-- Title [Release] Team Damage Scoreboard
 -- Forum link https://aimware.net/forum/thread/101223
 
 local totalDamage = {}

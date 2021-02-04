@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: thekorol
--- Title [Release] MIN DAMAGE INDICATOR
+-- Title [Release] Min Damage Indicator
 -- Forum link https://aimware.net/forum/thread/141115
 
 x,y = draw.GetScreenSize();

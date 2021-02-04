@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: hemuyang
--- Title [Release] Minimum damage indicator
+-- Title [Release] Minimum Damage Indicator
 -- Forum link https://aimware.net/forum/thread/145644
 
 --悠然

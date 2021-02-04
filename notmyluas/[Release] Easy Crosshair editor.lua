@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: BQJ
--- Title [Release] Easy Crosshair editor
+-- Title [Release] Easy Crosshair Editor
 -- Forum link https://aimware.net/forum/thread/145866
 
 local wnd = gui.Reference("Visuals")

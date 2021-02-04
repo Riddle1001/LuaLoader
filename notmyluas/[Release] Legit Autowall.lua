@@ -157,7 +157,7 @@ end)
 
 -- Scraped by chicken
 -- Author: helloabcdf123
--- Title [Release] Legit AUTOWALL
+-- Title [Release] Legit AutoWall
 -- Forum link https://aimware.net/forum/thread/139856
 
 

@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: PapaEcksdee
--- Title [Release] Nade self
+-- Title [Release] Nade Self
 -- Forum link https://aimware.net/forum/thread/139659
 
 local NadeRef = gui.Reference("MISC")

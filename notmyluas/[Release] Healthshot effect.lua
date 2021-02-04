@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: adrianobessa5682
--- Title [Release] Healthshot effect
+-- Title [Release] Healthshot Effect
 -- Forum link https://aimware.net/forum/thread/128123
 
 print("Loaded Aimware Healthshot Lua by Starlordaiden")

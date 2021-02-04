@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Xiehwei
--- Title [Release] onpeak Fakelag
+-- Title [Release] OnPeak Fakelag
 -- Forum link https://aimware.net/forum/thread/145139
 
 local DT_REF = gui.Reference( "MISC", "Enhancement", "Fakelag" )

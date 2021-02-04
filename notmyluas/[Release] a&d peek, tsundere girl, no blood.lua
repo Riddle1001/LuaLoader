@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: ambien55
--- Title [Release] a&d peek, tsundere girl, no blood
+-- Title [Release] A&D Peek, Tsundere Girl, No Blood
 -- Forum link https://aimware.net/forum/thread/101443
 
 local last_a, last_d = 0

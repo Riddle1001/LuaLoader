@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: uvxxvu
--- Title [Release] Fake scroll on Jump-Bug miss [v5]
+-- Title [Release] Fake Scroll On Jump-Bug Miss [V5]
 -- Forum link https://aimware.net/forum/thread/128377
 
 local ui_checkbox = gui.Checkbox( gui.Reference("MISC","Movement", "Jump"),"misc.autojumpbug.scroll", "Fake Scroll On Jump-bug Miss", 1 )

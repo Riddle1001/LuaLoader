@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Eagle
--- Title [Release] leg fucker
+-- Title [Release] Leg Fucker
 -- Forum link https://aimware.net/forum/thread/144904
 
 local slidewalk = "misc.slidewalk"

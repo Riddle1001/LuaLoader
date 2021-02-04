@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Morturem
--- Title [Release] nade throwsay
+-- Title [Release] Nade Throwsay
 -- Forum link https://aimware.net/forum/thread/131384
 
 function on_nade(Event)

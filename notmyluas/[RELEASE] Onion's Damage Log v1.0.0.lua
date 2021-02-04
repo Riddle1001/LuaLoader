@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: catmanformod2019
--- Title [RELEASE] Onion's Damage Log v1.0.0
+-- Title [Release] Onion's Damage Log v1.0.0
 -- Forum link https://aimware.net/forum/thread/132190
 
 --
@@ -41,12 +41,12 @@ local damageLogX, damageLogY = 0, 0
 --
 
 function drawFilledRect(r, g, b, a, x, y, width, height)
-	draw.Color(r, g, b, a)
-	draw.FilledRect(x, y, x + width, y + height)
+ draw.Color(r, g, b, a)
+ draw.FilledRect(x, y, x + width, y + height)
 end
 
 function drawText(r, g, b, a, x, y, font, str, style)
-	draw.Color(r, g, b, a)
+ draw.Color(r, g, b, a)
   draw.SetFont(font)
 
   local textW, textH = draw.GetTextSize(str)
@@ -126,13 +126,13 @@ end
 --
 
 function gatherVariables()
-	if (initialize == false) then
-		initialize = true
+ if (initialize == false) then
+ initialize = true
     scrW, scrH = draw.GetScreenSize()
   end
   
   mouseX, mouseY = input.GetMousePos()
-	localPlayer = entities.GetLocalPlayer()
+ localPlayer = entities.GetLocalPlayer()
   playerResources = entities.GetPlayerResources()
 
   if (localPlayer == nil) then

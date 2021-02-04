@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: 90D5p33D
--- Title [Release] Fov Scope Fix
+-- Title [Release] FOV Scope Fix
 -- Forum link https://aimware.net/forum/thread/139093
 
 gui.Reference("Visuals","Local","Camera","ViewFOV"):SetInvisible(1)

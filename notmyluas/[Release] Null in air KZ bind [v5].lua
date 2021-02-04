@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: uvxxvu
--- Title [Release] Null in air KZ bind [v5]
+-- Title [Release] Null in air KZ bind [V5]
 -- Forum link https://aimware.net/forum/thread/128386
 
 local last_a, last_d = 0

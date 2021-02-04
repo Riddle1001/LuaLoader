@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: BQJ
--- Title [Release] Ragdoll editor
+-- Title [Release] Ragdoll Editor
 -- Forum link https://aimware.net/forum/thread/145833
 
 local wnd = gui.Reference("Misc")

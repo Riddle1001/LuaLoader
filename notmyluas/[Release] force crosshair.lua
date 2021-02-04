@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: D1versantniK
--- Title [Release] force crosshair
+-- Title [Release] Force Crosshair
 -- Forum link https://aimware.net/forum/thread/145310
 
 local function forcecrosshair() 

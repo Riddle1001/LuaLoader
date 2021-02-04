@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: picocode
--- Title [RELEASE] Anti-Aim script
+-- Title [Release] Anti-Aim Script
 -- Forum link https://aimware.net/forum/thread/130122
 
 local RotationJitter = 10

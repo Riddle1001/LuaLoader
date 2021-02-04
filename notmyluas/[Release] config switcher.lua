@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Chicken4676
--- Title [Release] config switcher
+-- Title [Release] Config Switcher
 -- Forum link https://aimware.net/forum/thread/133660
 
 local config_switch_tab = gui.Tab(gui.Reference("Settings"), "config_switch", "Config switcher")

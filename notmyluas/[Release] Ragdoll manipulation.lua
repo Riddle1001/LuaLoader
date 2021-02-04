@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Cheeseot
--- Title [Release] Ragdoll manipulation
+-- Title [Release] Ragdoll Manipulation
 -- Forum link https://aimware.net/forum/thread/96241
 
 --Ragdoll Manipulation by Cheeseot

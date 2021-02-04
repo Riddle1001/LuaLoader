@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: razor50333
--- Title [Release] Scope zoom fix for high FOV
+-- Title [Release] Scope Zoom Fix For High FOV
 -- Forum link https://aimware.net/forum/thread/144373
 
 

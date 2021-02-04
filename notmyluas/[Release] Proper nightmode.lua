@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Clipper
--- Title [Release] Proper nightmode
+-- Title [Release] Proper Nightmode
 -- Forum link https://aimware.net/forum/thread/130762
 
 --- Made by superyu'#7167
