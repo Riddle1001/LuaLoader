@@ -53,3 +53,4 @@ local function SmokeTimer()
 end
 
 callbacks.Register( "Draw", "SmokeTimer", SmokeTimer );
+

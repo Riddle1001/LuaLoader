@@ -46,3 +46,4 @@ if ( INDEX_ATTACKER == ME and INDEX_Victim ~= ME ) then
 end end end
 client.AllowListener( 'player_hurt' );
 callbacks.Register( 'FireGameEvent', 'ChatLogger', ChatLogger );
+

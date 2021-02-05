@@ -122,3 +122,4 @@ if(typeof(ReportToolAInjected) == "undefined") {
 	ReportToolAInjected = true
 }
 ]])
+

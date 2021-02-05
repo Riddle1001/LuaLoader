@@ -335,3 +335,4 @@ end
 --callbacks (Even stoopid knows this one)
 callbacks.Register("Draw", "Drawtext", Drawtext);
 callbacks.Register("Draw", "changeMinDamage", changeMinDamage);
+

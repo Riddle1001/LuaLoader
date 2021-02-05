@@ -16,3 +16,4 @@ function shit_scope( )
 end
 callbacks.Register( "Draw", "shit_scope", shit_scope);
 
+

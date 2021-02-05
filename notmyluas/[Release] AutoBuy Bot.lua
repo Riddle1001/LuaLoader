@@ -67,3 +67,4 @@ end
 client.AllowListener('round_start');
 callbacks.Register("FireGameEvent", "autobuy", autobuy);
 callbacks.Register("Draw", "buy", buy);
+

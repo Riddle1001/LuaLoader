@@ -266,3 +266,4 @@ end
 
 
 callbacks.Register( "Draw", "on_paint", on_paint);
+

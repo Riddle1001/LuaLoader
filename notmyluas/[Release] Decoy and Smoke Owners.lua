@@ -131,3 +131,4 @@ callbacks.Register('Draw', function()
   draw_decoys(my_team, my_index)
   draw_smokes(my_team, my_index)
 end)
+
