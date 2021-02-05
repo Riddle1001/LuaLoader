@@ -35,3 +35,5 @@ local Doubletap = gui.Keybox( rage_ref, "DoubleTapKey", "Double Fire Key", 0 )
 
 callbacks.Register( "Draw", "DoubleFireKey", Main);
 
+
+

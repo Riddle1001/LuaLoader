@@ -15,3 +15,5 @@ end
 
 callbacks.Register("Draw", "FlashAlpha", FlashAlpha)
 
+
+

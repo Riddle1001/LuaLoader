@@ -48,3 +48,5 @@ client.AllowListener( 'player_hurt' );
 callbacks.Register( 'FireGameEvent', 'ChatLogger', ChatLogger );
 
 
+
+

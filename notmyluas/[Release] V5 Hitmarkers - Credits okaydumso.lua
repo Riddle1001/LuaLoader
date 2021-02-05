@@ -129,3 +129,5 @@ client.AllowListener("player_hurt");
 callbacks.Register("FireGameEvent", hFireGameEvent);
 callbacks.Register("Draw", hDraw);
 
+
+

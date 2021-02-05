@@ -30,3 +30,5 @@ end
 client.AllowListener('item_equip');
 callbacks.Register("FireGameEvent", "on_knife", DisableThirdPerson);
 
+
+

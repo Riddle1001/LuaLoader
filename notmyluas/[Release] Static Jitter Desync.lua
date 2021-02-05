@@ -19,3 +19,5 @@ print(luck)
 end
 callbacks.Register("Draw", desync_changer)
 
+
+

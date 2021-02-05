@@ -99,3 +99,5 @@ client.AllowListener( "begin_new_match" );
 callbacks.Register( "FireGameEvent", "KillDeathCount", KillDeathCount);
 callbacks.Register("Draw", "paint_traverse", paint_traverse);
 
+
+

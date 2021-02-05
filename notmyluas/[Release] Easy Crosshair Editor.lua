@@ -65,3 +65,5 @@ client.SetConVar("cl_crosshair_outlinethickness", outlineT:GetValue())
 end
 callbacks.Register("Draw", OnDraw)
 
+
+

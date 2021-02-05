@@ -118,3 +118,5 @@ client.AllowListener('round_announce_match_start');
 callbacks.Register("FireGameEvent", gameEventHandler);
 callbacks.Register("Draw", "TeamkillGui", OnDraw);
 
+
+

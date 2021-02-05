@@ -58,3 +58,5 @@ if (client.GetLocalPlayerIndex() == client.GetPlayerIndexByUserID(Event:GetInt('
 client.AllowListener('grenade_thrown');
 callbacks.Register("FireGameEvent", "nadesay", inc_nade);
 
+
+

@@ -33,3 +33,5 @@ elseif entities.GetLocalPlayer():GetTeamNumber() == 3 then
 end end end
 callbacks.Register("Draw", "k", knives);
 
+
+

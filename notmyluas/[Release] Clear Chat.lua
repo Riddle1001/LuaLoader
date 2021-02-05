@@ -16,3 +16,5 @@ if Clear_Chat:GetValue() then
 end end end
 callbacks.Register( "Draw", "spams", spammer);
 
+
+

@@ -20,3 +20,5 @@ for i=1, 200 do local i2=i*0.01;  i2 = 2 - i2; local divisor = gcd(screen_width*
 local aspect_ratio = aspect_ratio_reference:GetValue()*0.01; aspect_ratio = 2 - aspect_ratio; set_aspect_ratio(aspect_ratio); end
 callbacks.Register('Draw', "does shit" ,on_aspect_ratio_changed)
 
+
+

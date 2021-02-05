@@ -17,3 +17,5 @@ controller:SetProp("m_flCustomAutoExposureMax", exposure:GetValue()/100);
 end
 end)
 
+
+

@@ -7,3 +7,5 @@ callbacks.Register('Draw', function()
   gui.SetValue('vis_antiobs', gui.Reference("MENU"):IsActive() and 1 or 0);
 end)
 
+
+

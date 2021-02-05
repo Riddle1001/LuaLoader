@@ -707,3 +707,5 @@ callbacks.Register("Draw", "getAccuracy", getAccuracy);
 callbacks.Register("Draw", "drawMode", drawMode);
 
 
+
+

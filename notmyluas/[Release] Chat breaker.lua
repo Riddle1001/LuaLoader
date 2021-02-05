@@ -29,3 +29,5 @@ function ChatSpam()
 end
 callbacks.Register( "Draw", "ChatSpam", ChatSpam );
 
+
+

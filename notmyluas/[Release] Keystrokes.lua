@@ -7,3 +7,5 @@ if entities.GetLocalPlayer() ~= nil and entities.GetLocalPlayer():IsAlive() then
 	--code
 end
 
+
+

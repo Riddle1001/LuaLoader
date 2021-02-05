@@ -9,3 +9,5 @@ callbacks.Register('Draw',function()
  S('@panorama_disable_blur', e:GetValue() and 1 or 0, true)
 end)
 
+
+

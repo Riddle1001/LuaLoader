@@ -102,3 +102,5 @@ end
 
 callbacks.Register( "Draw", "LegitbotAntiAimIndicators",activationCheck );
 
+
+

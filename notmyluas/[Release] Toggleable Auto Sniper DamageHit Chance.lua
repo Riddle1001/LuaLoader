@@ -268,3 +268,5 @@ callbacks.Register("Draw", "setAccuracy", setAccuracy);
 callbacks.Register("Draw", "getAccuracy", getAccuracy);
 callbacks.Register("Draw", "drawMode", drawMode);
 
+
+

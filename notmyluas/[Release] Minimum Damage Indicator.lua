@@ -43,3 +43,5 @@ draw.TextShadow(x-100,y-460,gui.GetValue("rbot.accuracy.weapon.scout.mindmg"))
       end
 end)
 
+
+

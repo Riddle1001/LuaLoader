@@ -27,3 +27,5 @@ elseif local_player:IsAlive() == false then
   end end
 callbacks.Register("Draw", "ondead", ESP_Always_OnDead);
 
+
+

@@ -45,3 +45,5 @@ end
 
 callbacks.Register("Draw", "changeDmgMain", legitRage);
 
+
+

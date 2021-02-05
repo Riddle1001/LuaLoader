@@ -22,3 +22,5 @@ callbacks_register("Draw", "test", function()
 	draw_text(25, 25, "fps:" .. get_abs_fps());
 end);
 
+
+

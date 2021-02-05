@@ -41,3 +41,5 @@ callbacks.Register("Draw", "AL_Draw", Draw)
 local credits = {"[AV] AimWare Advanced Legit Script by rraggerr", "[AV] Version [1.0]", "[AV] 3 Nov. 2018", "[AV] Sucessfuly loaded!"}
 for a = 0, #credits do print(credits[a]) end
 
+
+

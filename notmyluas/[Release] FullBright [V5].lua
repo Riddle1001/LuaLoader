@@ -16,3 +16,5 @@ function full_bright()
 callbacks.Register('Draw', "FullBright" ,full_bright);
 
 
+
+
