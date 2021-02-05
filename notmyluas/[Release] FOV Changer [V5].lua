@@ -35,3 +35,4 @@ callbacks.Register( "Draw", function()
   client.Command("fov_cs_debug "..SLIDER:GetValue(), true)
   client.SetConVar("viewmodel_fov", SLIDER_VIEW:GetValue(), true)
 end)
+

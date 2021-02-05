@@ -26,3 +26,4 @@ elseif local_player:IsAlive() == false then
   gui.SetValue("esp_enemy_name", true)
   end end
 callbacks.Register("Draw", "ondead", ESP_Always_OnDead);
+

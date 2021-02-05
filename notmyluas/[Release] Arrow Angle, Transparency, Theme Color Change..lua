@@ -50,3 +50,4 @@
 <000>clr_gui_window_logo1 255 255 255 255
 <000>clr_gui_window_logo2 186 35 43 255
 <000>clr_gui_window_shadow 0 0 0 255
+

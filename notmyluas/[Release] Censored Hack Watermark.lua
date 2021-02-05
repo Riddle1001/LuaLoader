@@ -6,3 +6,4 @@
 v2 - added watermark color picker as well as text color picker
 v1 - inital release
 
+

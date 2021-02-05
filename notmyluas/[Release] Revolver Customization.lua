@@ -33,3 +33,4 @@ local function on_create_move(cmd)
 end
 
 callbacks.Register("CreateMove", on_create_move)
+

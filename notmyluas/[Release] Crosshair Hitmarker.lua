@@ -65,3 +65,4 @@ client.AllowListener('player_hurt');
 
 callbacks.Register('FireGameEvent','AWKS',player_hurt);
 callbacks.Register('Draw','hitmarker',hitmarker);
+

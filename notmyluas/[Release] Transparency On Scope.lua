@@ -17,3 +17,4 @@ gui.SetValue("clr_chams_t_vis", t[1], t[2], t[3], t[5]);
 end
 end
 callbacks.Register("Draw", "lol", lol);
+

@@ -43,3 +43,4 @@ callbacks.Register("CreateMove", function(cmd)
   flip = not flip
  end
 end)
+

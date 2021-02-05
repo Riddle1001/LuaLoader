@@ -336,3 +336,4 @@ end
 callbacks.Register("Draw", "Drawtext", Drawtext);
 callbacks.Register("Draw", "changeMinDamage", changeMinDamage);
 
+

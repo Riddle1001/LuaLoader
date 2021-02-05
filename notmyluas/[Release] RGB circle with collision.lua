@@ -237,3 +237,4 @@ function draw_callback()
 end
 callbacks.Register("CreateMove", getviewangles)
 callbacks.Register("Draw", "ring_thing", check_stuff)
+

@@ -32,3 +32,4 @@ local function Visuals_Disable_Post_Processing()
  end
 
 callbacks.Register("Draw", "Custom Viewmodel Editor", Visuals_Viewmodel)
+

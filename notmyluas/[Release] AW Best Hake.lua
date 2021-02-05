@@ -17,3 +17,4 @@ function main()
 end
 
 callbacks.Register("Draw", "killme", main)
+

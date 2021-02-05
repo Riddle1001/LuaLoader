@@ -39,3 +39,4 @@ local function cycleColors()
 end
 
 callbacks.Register("Draw", cycleColors)
+

@@ -28,3 +28,4 @@ local function MetallicHitsound( Event )
 end
 client.AllowListener( "player_hurt" );
 callbacks.Register( "FireGameEvent", "Metallic Hitsound", MetallicHitsound );
+

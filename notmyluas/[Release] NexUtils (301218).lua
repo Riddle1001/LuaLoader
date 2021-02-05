@@ -354,3 +354,4 @@ NexUtils.GetBombDamage = function(Bomb, Player)
   end
   return math.max(flDamage, 0);
 end
+

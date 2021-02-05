@@ -8,3 +8,4 @@ local S,e=client.SetConVar,gui.Checkbox(gui.Reference("VISUALS","Shared"), 'lua_
 callbacks.Register('Draw',function()
  S('@panorama_disable_blur', e:GetValue() and 1 or 0, true)
 end)
+

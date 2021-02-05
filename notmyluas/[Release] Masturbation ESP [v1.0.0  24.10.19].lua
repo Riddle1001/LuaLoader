@@ -54,3 +54,4 @@ end
 callbacks.Register("Draw", "main", main);
 client.AllowListener('item_equip');
 callbacks.Register("FireGameEvent", "itemcheck", itemcheck);
+

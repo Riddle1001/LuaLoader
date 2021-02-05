@@ -31,3 +31,4 @@ end
 end
 
 callbacks.Register("Draw", "pfixscoped", pfixscoped)
+

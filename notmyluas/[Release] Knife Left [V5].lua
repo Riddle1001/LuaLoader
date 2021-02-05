@@ -19,3 +19,4 @@ end
 
 client.AllowListener('item_equip');
 callbacks.Register("FireGameEvent", "on_knife_righthand", on_knife_righthand);
+

@@ -31,3 +31,4 @@ callbacks.Register( "Draw", function()
    draw.TextShadow(w * 0.174, h - 35, "Visuals")
   end
 end)
+

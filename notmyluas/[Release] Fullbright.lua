@@ -12,3 +12,4 @@ end
 
 
 c_reg("Draw", "fBright", fBright)
+

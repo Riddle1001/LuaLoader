@@ -181,3 +181,4 @@ show_hide_menu()
 end
 
 callbacks.Register( "Draw", "bind_menu", bind_menu );
+

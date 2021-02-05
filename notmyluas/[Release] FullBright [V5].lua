@@ -15,3 +15,4 @@ function full_bright()
   end
 callbacks.Register('Draw', "FullBright" ,full_bright);
 
+

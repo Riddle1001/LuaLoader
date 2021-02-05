@@ -23,3 +23,4 @@ else client.SetConVar("viewmodel_offset_z", viewmodelZ, true)
 end end end end end 
 callbacks.Register("Draw", yourmumsahoe)
 
+

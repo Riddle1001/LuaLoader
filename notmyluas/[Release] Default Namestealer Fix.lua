@@ -12,3 +12,4 @@ local NameStealerFix = function()
 end
 
 callbacks.Register("Draw", "NameStealerFix", NameStealerFix)
+

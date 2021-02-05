@@ -4,3 +4,4 @@
 -- Forum link https://aimware.net/forum/thread/101729
 
 client.SetConVar( "r_skin", 0, true )
+

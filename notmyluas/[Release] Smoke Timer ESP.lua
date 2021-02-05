@@ -54,3 +54,4 @@ end
 
 callbacks.Register( "Draw", "SmokeTimer", SmokeTimer );
 
+

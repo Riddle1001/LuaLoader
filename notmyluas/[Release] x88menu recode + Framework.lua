@@ -407,3 +407,4 @@ callbacks.Register("Draw", props)
 callbacks.Register("CreateMove", create_move)
 callbacks.Register("Draw", on_draw)
 
+

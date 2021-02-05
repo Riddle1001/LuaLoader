@@ -27,3 +27,4 @@ end
 end 
 
 callbacks.Register('DrawESP','draw_revivecount',draw_revivecount);
+

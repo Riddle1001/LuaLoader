@@ -35,3 +35,4 @@ viewfovs:SetValue(90)
 viewmodelfovs:SetValue(54)
 end)
 
+

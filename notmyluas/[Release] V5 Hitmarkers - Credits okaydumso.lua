@@ -128,3 +128,4 @@ client.AllowListener("bullet_impact");
 client.AllowListener("player_hurt");
 callbacks.Register("FireGameEvent", hFireGameEvent);
 callbacks.Register("Draw", hDraw);
+

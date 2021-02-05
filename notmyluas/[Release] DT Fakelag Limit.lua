@@ -54,3 +54,4 @@ gui.SetValue("misc.fakelag.enable", sld_nrm:GetValue() >= 3)
 gui.SetValue("misc.fakelag.factor", sld_nrm:GetValue())
 end
 end)
+

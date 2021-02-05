@@ -62,3 +62,4 @@ function changeDmgMain()
   end
 end
 callbacks.Register("Draw", "changeDmgMain", changeDmgMain);
+

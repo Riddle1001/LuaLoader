@@ -66,3 +66,4 @@ callbacks.Register( "Draw", function()
       draw.TextShadow(w * 0.337, h - 35, "Right")
   end
 end)
+

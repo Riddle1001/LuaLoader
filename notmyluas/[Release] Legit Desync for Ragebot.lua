@@ -123,3 +123,4 @@ draw.Text(5, position_z:GetValue(), "MANUAL:RIGHT")
 end
 end
 end)
+

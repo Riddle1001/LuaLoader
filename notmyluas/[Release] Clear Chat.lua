@@ -15,3 +15,4 @@ if Clear_Chat:GetValue() then
   spammedlast = globals.TickCount()
 end end end
 callbacks.Register( "Draw", "spams", spammer);
+

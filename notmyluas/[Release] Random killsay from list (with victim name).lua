@@ -74,3 +74,4 @@ end
 client.AllowListener( 'player_death' );
 
 callbacks.Register( 'FireGameEvent', 'AWKS', CHAT_KillSay );
+

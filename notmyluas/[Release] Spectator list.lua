@@ -181,3 +181,4 @@ callbacks.Register("Draw", function()
   drawspectators(spectators);
   dragFeature();
 end)
+

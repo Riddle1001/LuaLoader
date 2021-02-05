@@ -20,3 +20,4 @@ local lua_ChickenAnim = Combobox(lua_groupbox, 'lua_ChickenAnim', 'Chicken Anima
 					end
 			end
 
+

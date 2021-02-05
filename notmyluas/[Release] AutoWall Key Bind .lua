@@ -35,3 +35,4 @@ local font1 = draw.CreateFont('Verdana', 20, 700)
 callbacks.Register( "Draw", "AutowallKey", Main);
 ------AutowallKey By AnAnAn 
 ------作者 An QQ 2926669800
+

@@ -125,3 +125,4 @@ gui.SetValue("esp.world.nadetracer.local",math.random(0,1))
 end
 end
 callbacks.Register( "Draw", aids);
+

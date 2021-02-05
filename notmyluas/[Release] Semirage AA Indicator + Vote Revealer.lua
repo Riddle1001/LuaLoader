@@ -223,3 +223,4 @@ callbacks.Register("Draw", DrawInfo);
 callbacks.Register("Draw", DrawVoteLogs);
 callbacks.Register('FireGameEvent', VoteStart)
 callbacks.Register("DispatchUserMessage", VoteEnd)
+

@@ -166,3 +166,4 @@ end
 callbacks.Register("Draw", "main", main)
 callbacks.Register("Draw", "CountCheck", CountCheck)
 callbacks.Register("Draw", "draw_indicator", draw_indicator)
+

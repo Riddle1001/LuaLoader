@@ -317,3 +317,4 @@ function draw_indicator()
 callbacks.Register( "Draw", "main", main);
 
 callbacks.Register( "Draw", "draw_indicator", draw_indicator);
+

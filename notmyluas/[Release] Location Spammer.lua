@@ -34,3 +34,4 @@ last_spam = globals.TickCount()
 end
 callbacks.Register( "Draw", "Spam Player Location", LocationSpam );
 
+

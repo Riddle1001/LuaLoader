@@ -67,3 +67,4 @@ callbacks.Register("Draw", "fog", function()
     end
  end
 end);
+

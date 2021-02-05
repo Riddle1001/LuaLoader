@@ -30,3 +30,4 @@ callbacks.Register("CreateMove", function(cmd)
   last_d = globals.CurTime()
  end
 end)
+

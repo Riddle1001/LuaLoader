@@ -37,3 +37,4 @@ local function LegitAnitAimOnPing()
 end
 
 callbacks.Register( "Draw", "Legit Anit-Aim On Ping", LegitAnitAimOnPing )
+

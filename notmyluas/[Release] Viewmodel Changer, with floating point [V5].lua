@@ -28,3 +28,4 @@ function doesthing()
  client.SetConVar("viewmodel_fov", vfov:GetValue()/1000.0, true);
 end
 callbacks.Register("Draw", "sets", doesthing);
+

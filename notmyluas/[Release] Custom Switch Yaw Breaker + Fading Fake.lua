@@ -438,3 +438,4 @@ callbacks.Register("Draw", "desyncindicator", desyncindicator)
 callbacks.Register("Draw", "yawindicator", yawindicator)
 callbacks.Register("Draw", "realindicator", realindicator)
 callbacks.Register("Draw", "fakelagindicator", fakelagindicator)
+

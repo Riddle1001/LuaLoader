@@ -23,3 +23,4 @@ end
 
 client.AllowListener( 'player_death' );
 callbacks.Register( 'FireGameEvent', 'HealthshotEffect', HealthshotEffect )
+

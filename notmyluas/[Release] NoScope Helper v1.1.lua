@@ -19,3 +19,4 @@ gui.SetValue("rbot.accuracy.weapon.asniper.doublefirehc", noscope_damage)
 
 end
 end)
+

@@ -21,3 +21,4 @@ client.SetConVar("viewmodel_offset_y", yS:GetValue(), true);
 client.SetConVar("viewmodel_offset_z", zS:GetValue(), true); 
 client.SetConVar("viewmodel_fov", vfov:GetValue(), true); end
 callbacks.Register("Draw", "sets", doesthing);
+

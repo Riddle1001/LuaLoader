@@ -26,3 +26,4 @@ end)
 
 client.AllowListener( 'weapon_fire' );
 callbacks.Register("FireGameEvent", FakeDuck)
+
