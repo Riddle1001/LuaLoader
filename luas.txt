@@ -464,4 +464,3 @@ https://aimware.net/forum/thread/86648,[Release] Latency On Scout Only,BigTrap,h
 https://aimware.net/forum/thread/86500,[Release] Disable AA  Fakelag on round end,massas,https://raw.githubusercontent.com/Aimware0/LuaLoader/main/notmyluas/[Release] Disable AA  Fakelag on round end.lua
 https://aimware.net/forum/thread/86414,[Release] Always ESP On Dead,zack,https://raw.githubusercontent.com/Aimware0/LuaLoader/main/notmyluas/[Release] Always ESP On Dead.lua
 https://aimware.net/forum/thread/86245,[Release] Timers,zack,https://raw.githubusercontent.com/Aimware0/LuaLoader/main/notmyluas/[Release] Timers.lua
-https://aimware.net/forum/thread/86082,[Release] FPS & kdr indicator, trannyhack style,Prifabu,https://raw.githubusercontent.com/Aimware0/LuaLoader/main/notmyluas/[Release] FPS & kdr indicator, trannyhack style.lua
