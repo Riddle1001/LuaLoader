@@ -19,6 +19,3 @@ function Jitter()
  end
 end
 callbacks.Register( "Draw", "Jitter", Jitter );
-
-
-

@@ -38,6 +38,3 @@ end
 client.AllowListener("game_newmap");
 callbacks.Register("FireGameEvent", "work_events_thunder", work_events);
 callbacks.Register("Draw", "work_thunder", work);
-
-
-

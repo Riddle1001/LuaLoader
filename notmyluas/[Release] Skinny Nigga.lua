@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Dankkk
--- Title [Release] SKINNYNIGGA
+-- Title [Release] Skinny Nigga
 -- Forum link https://aimware.net/forum/thread/113280
 
 local function Draw()
@@ -13,7 +13,3 @@ local function Draw()
   end
 end
 callbacks.Register("Draw", "Draw", Draw)
-
-
-
-

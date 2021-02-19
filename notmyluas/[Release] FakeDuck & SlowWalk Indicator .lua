@@ -43,6 +43,3 @@ end
 end
 callbacks.Register( "Draw", "SW", Main);
 --------------------------------------------------By An QQ 2926669800
-
-
-

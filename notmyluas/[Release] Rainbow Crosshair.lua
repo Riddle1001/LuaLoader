@@ -103,7 +103,3 @@ end
 
 
 callbacks.Register( "Draw", "xd", rainbowcolors);
-
-
-
-

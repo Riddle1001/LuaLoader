@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: zack
--- Title [Release] Team Based knife
+-- Title [Release] Team Based Knife
 -- Forum link https://aimware.net/forum/thread/91174
 
 
@@ -32,6 +32,3 @@ elseif entities.GetLocalPlayer():GetTeamNumber() == 3 then
    ctknifebox:GetValue() == 12 then ctknife = 12 elseif ctknifebox:GetValue() == 13 then ctknife1 = 13 end gui.SetValue("skin_knife", ctknife)
 end end end
 callbacks.Register("Draw", "k", knives);
-
-
-

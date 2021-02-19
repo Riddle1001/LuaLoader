@@ -65,6 +65,3 @@ end
 
 client.AllowListener( "item_equip" )
 callbacks.Register( "FireGameEvent", "AutoLatancey", AutoLatancey )
-
-
-

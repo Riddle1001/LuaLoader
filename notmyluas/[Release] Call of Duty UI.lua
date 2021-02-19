@@ -9,6 +9,3 @@
 + Enable ADS option
 + Master enable is actually functional now
 + Cvars are automatically activated 
-
-
-

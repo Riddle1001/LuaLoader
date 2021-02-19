@@ -17,6 +17,3 @@ local FT = gui.Slider(VMStuff, "VM_Tank", "Tank", f1, 0, 360)
 
 function VM_E() if VM_e:GetValue() then client.SetConVar("cl_viewmodelfovsurvivor", xS:GetValue(), true); client.SetConVar("cl_viewmodelfovboomer", yS:GetValue(), true); client.SetConVar("cl_viewmodelfovhunter", zS:GetValue(), true); client.SetConVar("cl_viewmodelfovsmoker", vfov:GetValue(), true); client.SetConVar("cl_viewmodelfovtank", FT:GetValue(), true); end end
 callbacks.Register("Draw", "vm sets", VM_E);
-
-
-

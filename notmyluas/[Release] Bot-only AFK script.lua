@@ -11,7 +11,3 @@ local function ignoreESP(ESPENT)
  end
 end
 callbacks.Register("DrawESP", ignoreESP)
-
-
-
-

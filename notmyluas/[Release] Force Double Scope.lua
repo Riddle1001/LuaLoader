@@ -30,6 +30,3 @@ local function ZoomFOV()
 end
 
 callbacks.Register( "Draw", "ZoomFOV", ZoomFOV);
-
-
-

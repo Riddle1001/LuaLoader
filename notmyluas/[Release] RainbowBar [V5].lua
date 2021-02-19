@@ -12,6 +12,3 @@ callbacks.Register("Draw", function()
   draw.Color(r, g, b, 255);
   draw.FilledRect(0, 0, screenSize, 5.5);
 end)
-
-
-

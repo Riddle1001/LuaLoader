@@ -34,6 +34,3 @@ end
 -- Crosshair on sniper by stylerzin! (youtube.com/c/styxhvhchannel)
 
 callbacks.Register("Draw", "force_crosshair_draw", drawing_callback);
-
-
-

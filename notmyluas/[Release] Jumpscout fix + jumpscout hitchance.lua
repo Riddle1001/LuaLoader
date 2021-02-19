@@ -47,6 +47,3 @@ end
 
 callbacks.Register("CreateMove", js_fix)
 callbacks.Register("CreateMove", js_hc)
-
-
-

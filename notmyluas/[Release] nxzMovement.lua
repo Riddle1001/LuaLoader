@@ -187,7 +187,3 @@ callbacks.Register("Draw","EDGEBUG",DRAW_STATUS)
 callbacks.Register("CreateMove",JUMPBUG_SCROLL)
 callbacks.Register("Draw",veloc)
 
-
-
-
-

@@ -16,6 +16,3 @@ callbacks.Register("Draw", function()
     gui.SetValue("rbot.antiaim.left", 180)
   end
 end)
-
-
-

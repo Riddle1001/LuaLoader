@@ -430,6 +430,3 @@ if Checkbox_SideMenu:GetValue() ~= nil then
  return gui.Groupbox( Groupbox_pMenuRight, title, -16, temp_top, 245, hight )
  end
 end
-
-
-

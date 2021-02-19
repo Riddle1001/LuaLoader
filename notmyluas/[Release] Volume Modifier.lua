@@ -25,6 +25,3 @@ end
 
 
 callbacks.Register( 'Draw', main )
-
-
-

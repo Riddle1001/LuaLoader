@@ -64,6 +64,3 @@ local fuckcrosshairbutton = gui.Button(gui.Reference("Misc", "General", "Bypass"
 
 
 local normalcrosshairbutton = gui.Button(gui.Reference("Misc", "General", "Bypass"), "Normal crosshair", normalcrosshair)
-
-
-

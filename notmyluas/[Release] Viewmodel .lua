@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: zack
--- Title [Release] Viewmodel shit
+-- Title [Release] Viewmodel 
 -- Forum link https://aimware.net/forum/thread/89638
 
 
@@ -22,6 +22,3 @@ client.SetConVar("viewmodel_offset_y", yS:GetValue(), true);
 client.SetConVar("viewmodel_offset_z", zS:GetValue(), true);
 client.SetConVar("viewmodel_fov", vfov:GetValue(), true); end
 callbacks.Register("Draw", "sets", doesthing);
-
-
-

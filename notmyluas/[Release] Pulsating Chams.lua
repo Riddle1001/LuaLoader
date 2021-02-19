@@ -268,7 +268,3 @@ callbacks.Register("Draw", transparentScope)
 
 
 
-
-
-
-

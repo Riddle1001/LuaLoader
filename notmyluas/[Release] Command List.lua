@@ -227,7 +227,3 @@ local function key_commands()
 
 end
 callbacks.Register("Draw", "key_commands", key_commands);
-
-
-
-

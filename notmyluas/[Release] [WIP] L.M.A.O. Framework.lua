@@ -13,6 +13,3 @@
 |________/|__/|__/  |__/|__/|__/ |__/|__/ \______/ 
 
 Lamarr's Magnificent API Overhaul
-
-
-

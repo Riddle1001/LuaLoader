@@ -12,7 +12,3 @@ function sectime()
  end
 end
 callbacks.Register( "Draw", "sectime", sectime );
-
-
-
-

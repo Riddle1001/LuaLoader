@@ -186,6 +186,3 @@ end
 
 callbacks.Register("Draw", RetardedWatermark)
 callbacks.Register("Draw", keystrokesMain)
-
-
-

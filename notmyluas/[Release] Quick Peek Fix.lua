@@ -98,7 +98,3 @@ if ( victim_index == local_index and attacker_index ~= local_index ) then
 has_shot = true
 end
 end)
-
-
-
-

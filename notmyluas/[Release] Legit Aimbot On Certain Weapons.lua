@@ -30,7 +30,3 @@ function LegitOof()
 end
 
 callbacks.Register("Draw", "LegitOof", LegitOof);
-
-
-
-

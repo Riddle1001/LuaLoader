@@ -136,6 +136,3 @@ callbacks.Register("CreateMove",lagsync);
 callbacks.Register("Draw",YawHandler);
 callbacks.Register("Draw",KeyPressHandler);
 callbacks.Register("Draw",GUIHandler);
-
-
-

@@ -98,6 +98,3 @@ local function debug_builder(Builder)
 end;
 
 callbacks.Register("DrawESP", "debug_builder", debug_builder);
-
-
-

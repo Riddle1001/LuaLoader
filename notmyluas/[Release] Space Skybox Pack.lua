@@ -25,6 +25,3 @@ local function SkyBox()
   end
 end
 callbacks.Register("Draw", SkyBox)
-
-
-

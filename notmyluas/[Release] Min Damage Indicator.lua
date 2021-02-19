@@ -38,6 +38,3 @@ elseif wid == 40 then
 draw.TextShadow(20, y - 165, gui.GetValue("rbot.accuracy.weapon.scout.mindmg"));
 end
 end)
-
-
-

@@ -72,6 +72,3 @@ client.AllowListener("player_death");
 
 callbacks.Register("FireGameEvent", gameEventHandler);
 callbacks.Register("CreateMove", moveEventHandler);
-
-
-

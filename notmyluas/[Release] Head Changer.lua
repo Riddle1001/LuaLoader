@@ -34,6 +34,3 @@ local function ondraw()
 end
 
 callbacks.Register("Draw", ondraw)
-
-
-

@@ -4,6 +4,3 @@
 -- Forum link https://aimware.net/forum/thread/143817
 
 https://pastebin.com/zcfDSAab
-
-
-

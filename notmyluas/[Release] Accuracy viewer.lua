@@ -108,6 +108,3 @@ local function OnDrawESP( builder )
 end
 
 callbacks.Register( "DrawESP", OnDrawESP );
-
-
-

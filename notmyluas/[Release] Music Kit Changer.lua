@@ -10,7 +10,3 @@ function onDraw()
  entities.GetPlayerResources():SetPropInt(slider:GetValue(), "m_nMusicID", client.GetLocalPlayerIndex());
 end
 callbacks.Register("Draw", onDraw)
-
-
-
-

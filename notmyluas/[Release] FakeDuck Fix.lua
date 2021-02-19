@@ -48,7 +48,3 @@ callbacks.Register("Unload", function()
  gui.SetValue("rbot.antiaim.extra.fakecrouchkey", fd_key)
 end)
 
-
-
-
-

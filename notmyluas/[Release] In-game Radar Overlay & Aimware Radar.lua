@@ -8,6 +8,3 @@ callbacks.Register("CreateMove", function()
   client.Command("cl_drawhud_force_radar 0",true)
  end
 end)
-
-
-

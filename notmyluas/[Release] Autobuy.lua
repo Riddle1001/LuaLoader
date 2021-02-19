@@ -42,6 +42,3 @@ local function Hooked_Events( event )
 
 
 callbacks.Register( "FireGameEvent", Hooked_Events)
-
-
-

@@ -71,6 +71,3 @@ local function flash()
 end
 
 callbacks.Register("Draw", flash)
-
-
-

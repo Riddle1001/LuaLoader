@@ -1,4 +1,4 @@
-local version = "VERSION 2.22"
+local version = "VERSION 2.3"
 local version_url = "https://raw.githubusercontent.com/Aimware0/LuaLoader/main/version.txt"
 
 -- pasted functions
@@ -13,6 +13,135 @@ local function split(inputstr, sep)
 	return t
 end
 -- end of paste
+
+
+
+
+
+---- GUI CUSTOM SHIT
+
+function gui._Custom(ref, varname, name, x, y, w, h, paint, custom_vars)
+	local tbl = {val = 0}
+
+	local function read(v)
+		tbl.val = v
+	end
+
+	local function write()
+		return tbl.val
+	end
+	
+	local GuiObject = {
+		element = nil,
+		custom_vars = custom_vars or {},
+		name = name,
+		
+		GetValue = function(self)
+			return self.element:GetValue()
+		end,
+		
+		SetValue = function(self, value)
+			return self.element:SetValue(value)
+		end,
+		
+		GetName = function(self)
+			return self.name
+		end,
+		
+		SetName = function(self, name)
+			self.name = name
+		end,
+		
+		SetPosX = function(self, x)
+			self.element:SetPosX(x)
+		end,
+		
+		SetPosY = function(self, y)
+			self.element:SetPosY(y)
+		end,
+		
+		SetPos = function(self, x, y)
+			self.element:SetPosX(x)
+			self.element:SetPosY(y)
+		end,
+		
+		SetWidth = function(self, width)
+			self.element:SetWidth(width)
+		end,
+		
+		SetHeight = function(self, height)
+			self.element:SetHeight(height)
+		end,
+		
+		SetSize = function(self, w, h)
+			self.element:SetWidth(w)
+			self.element:SetHeight(h)
+		end,
+		
+		SetVisible = function(self, b)
+			self.element:SetInvisible(not b)
+		end,
+		
+		SetInvisible = function(self, b)
+			self.element:SetInvisible(b)
+		end,
+	}
+	
+	local function _paint(x, y, x2, y2, active)
+		local width = x2 - x
+		local height = y2 - y
+		paint(x, y, x2, y2, active, GuiObject, width, height)
+	end
+	
+	local custom = gui.Custom(ref, varname, x, y, w, h, _paint, write, read)
+	GuiObject.element = custom
+	
+	return GuiObject
+end
+
+
+
+function gui.ColoredText(ref, text, x, y, options)
+	local function paint(x, y, x2, y2, active, self, width, height)
+		local options = self.custom_vars
+		draw.Color(options.color[1], options.color[2], options.color[3])
+		draw.SetFont(options.font)
+		draw.Text(x, y, options.text)
+	end
+	
+	
+	
+	local options = options or {}
+	local vars = {
+		text = text,
+		color = options.color or {255,255,255},
+		font = options.font
+	}
+	
+	
+	
+	
+	local custom = gui._Custom(ref, "", "", x, y, 100, 100, paint, vars)
+
+	local funcs = {
+		SetOptions = function(self, options)
+			vars.text = options.text or vars.text
+			vars.font = options.font or vars.font
+		end
+	}
+	
+	local meta = {__index = custom}
+	setmetatable(funcs, meta) -- Allows funcs to have gui._Custom's functions
+	
+	return funcs
+end
+
+
+------- END GUI CUSTOM SHIT
+
+
+
+
 
 
 local match = string.match
@@ -43,6 +172,11 @@ http.Get(version_url, function(content)
 	end
 end)
 
+loadstring(http.Get("https://raw.githubusercontent.com/Aimware0/aimware_scripts/main/libraries/gui_custom_elements.lua"))
+-- print(http.Get("https://raw.githubusercontent.com/Aimware0/aimware_scripts/main/libraries/gui_custom_elements.lua"))
+
+print(gui.ColoredText, gui.Image)
+
 local function RemoveLineFromMultiLine(MultiLine, LineToRemove)
 	return string.gsub(MultiLine, LineToRemove .. "\n", "")
 end
@@ -53,7 +187,7 @@ function gui.Reference(...)
 	return oReference(...)
 end
 
-local function lualoaderFolderExists()
+local function LuaLoader_Folder_Exists()
 	local exists = false
 	file.Enumerate(function(fname)
 		if match(fname, "/") then
@@ -79,7 +213,7 @@ local autorun_file = "lualoader/autorun.txt"
 local external_downloads_file = "lualoader/external_downloads.txt"
 
 
-if not lualoaderFolderExists() then
+if not LuaLoader_Folder_Exists() then -- Create folders & files if lua loader folder does not exist.
 	local path = temp_path .. "/temp.txt"
 	file.Open(path, "w"):Close()
 	file.Delete(path)
@@ -93,7 +227,9 @@ if not lualoaderFolderExists() then
 	
 	
 end
-ClearTempLuas()
+
+ClearTempLuas() -- Clear temp luas that might have been not been cleared from last time running the script
+
 file.Open(external_downloads_file, "w"):Close()
 
 
@@ -118,7 +254,6 @@ http.Get("https://raw.githubusercontent.com/Aimware0/LuaLoader/main/README.md", 
 end)
 
 local filter_gb = gui.Groupbox(lualoader_tab, "Filter options", 10, 145)
-
 local search_entry = gui.Editbox(filter_gb, "Chicken.lualoader.search", "Search")
 
 local show = "all online"
@@ -161,6 +296,7 @@ local running_btn_text = gui.Text(filter_gb, "Running (0)")
 local downloads_btn_text = gui.Text(filter_gb, "Downloads (0)")
 local custom_btn_text = gui.Text(filter_gb, "Externally download")
 custom_btn:SetDisabled(true)
+
 local x = 110
 GO_SetPos(autorun_btn_text, 22, 62)
 GO_SetPos(all_scripts_btn_text, 9 + x, 62)
@@ -337,8 +473,9 @@ local function update_scriptbox_display()
 end
 
 local action_delay = 0
-
-local function CreateScriptBox(script_name, author, script_url, thread_url, external)
+local font = draw.CreateFont("Bahnschrift", 14)
+local function CreateScriptBox(script_name, author, author_rank, script_url, thread_url, external)
+	-- print(script_name, author, author_Rank, script_url, thread_url .. "\n\n\n")
 	local script_box = {GO_objects = {}}
 	script_box.script_name = script_name
 	script_box.author = author
@@ -376,7 +513,6 @@ local function CreateScriptBox(script_name, author, script_url, thread_url, exte
 		local remove_btn = gui.Button(script_box.GO_objects.header_gb, "Remove", function()
 			if globals.CurTime() > action_delay then
 				remove_external_download(script_box.id)
-				print(1)
 				update_scriptbox_display()
 				action_delay = globals.CurTime() + 0.3
 			end
@@ -400,8 +536,28 @@ local function CreateScriptBox(script_name, author, script_url, thread_url, exte
 	GO_SetPos(script_link, 480,-42)
 	GO_SetSize(script_link, 100, 20)
 
-	local author_text = gui.Text(script_box.GO_objects.header_gb, "Author: " .. author)
+	local author_text = gui.Text(script_box.GO_objects.header_gb, "Author: ")
+	
+	local color = {255, 160, 0}
+	if author_rank == "VIP" then
+		color = {255, 160, 0}
+	elseif author_rank == "Beta Tester" then
+		color = {48, 152, 48}
+	end
+	
+	if author == "Chicken4676" then
+		color = {185, 15, 10}
+	end
+	
+	local author_text = gui.ColoredText(script_box.GO_objects.header_gb, author, 43, -6, {
+		font = font,
+		color = color
+	})
+	-- local author_text = gui.ColoredText(lualoader_tab, "test", 200, 200)
 
+	-- print(gui.ColoredText)
+	
+	
 	script_box.GO_objects.run_btn = gui.Button(script_box.GO_objects.header_gb, "Run", function()
 		LoadScript(script_box.downloads_path)
 		script_box.running = true
@@ -496,14 +652,19 @@ http.Get("https://raw.githubusercontent.com/Aimware0/LuaLoader/main/luas.txt", f
 	local luas = split(content, "\n")
 	for k, lua in pairs(luas) do
 		local lua_data = split(lua, ",")
-		local lua_thread_link = lua_data[1]
-		local lua_author = lua_data[2]
-		local lua_name = lua_data[3]
-		local lua_url = lua_data[4]
 		
-		CreateScriptBox(lua_author, lua_name, lua_url, lua_thread_link)
+		local lua_thread_link = lua_data[1]
+		local lua_author = lua_data[3]
+		local lua_name = lua_data[2]
+		local lua_author_rank = lua_data[4]
+		local lua_url = lua_data[5]
+		CreateScriptBox(lua_name, lua_author, lua_author_rank, lua_url, lua_thread_link)
 	end
 end)
+
+
+
+
 
 
 local oSearchValue = ""
@@ -538,7 +699,6 @@ callbacks.Register("Draw", "Chicken.lualoader.UI", function()
 				add_to_autorun(script_box.id)
 				script_box.autorun = true
 				all_autorun = all_autorun + 1
-				print("Setting autorun")
 				autorun_btn_text:SetText("Autorun (" .. all_autorun .. ")")
 			else
 				remove_from_autorun(script_box.id)
@@ -553,7 +713,7 @@ callbacks.Register("Draw", "Chicken.lualoader.UI", function()
 end)
 
 
-local unload_all_btn = gui.Button(lualoader_tab, "Unload all", function()
+local unload_all_btn = gui.Button(lualoader_tab, "Unload all", function() -- Unloads all running scripts running that are running via the lua loader and clears temp files.
 	for k, script_box in pairs(script_boxes) do
 		if script_box.running then
 			UnloadScript(script_box.temp_path)
@@ -569,7 +729,7 @@ end)
 GO_SetPos(unload_all_btn, 545, 21)
 GO_SetSize(unload_all_btn, 65, 15)
 
-callbacks.Register("Unload", "Chicken.lualoader.unloadluas", function()
+callbacks.Register("Unload", "Chicken.lualoader.unloadluas", function() -- Unloads all running scripts running that are running via the lua loader and clears temp files.
 	for k, script_box in pairs(script_boxes) do
 		if script_box.running then
 			UnloadScript(script_box.temp_path)

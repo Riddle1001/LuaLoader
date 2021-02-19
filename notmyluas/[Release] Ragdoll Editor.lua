@@ -33,6 +33,3 @@ end
 end
 
 callbacks.Register("Draw", OnDraw)
-
-
-

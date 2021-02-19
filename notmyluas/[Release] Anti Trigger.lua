@@ -78,6 +78,3 @@ for i = 1, globals.MaxClients() do
 end
 
 callbacks.Register( 'Draw', 'AT', AntiTrigger );
-
-
-

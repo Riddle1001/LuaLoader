@@ -48,7 +48,3 @@ return
 end end
 client.AllowListener('item_equip');
 callbacks.Register("FireGameEvent", "if on sniper", on_sniper); callbacks.Register("Draw", "sniper crosshairs", ifCrosshair);
-
-
-
-

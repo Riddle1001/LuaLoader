@@ -50,6 +50,3 @@ client.SetConVar("viewmodel_offset_y",SLIDER_VIEWY:GetValue(),true);
 client.SetConVar("viewmodel_offset_z",SLIDER_VIEWZ:GetValue()+a,true);
 end
 end)
-
-
-

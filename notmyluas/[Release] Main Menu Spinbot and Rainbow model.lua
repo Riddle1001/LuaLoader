@@ -102,6 +102,3 @@ panorama.RunScript([[rainbowSpeed=]]..rainbow_speed_value..[[;]])
 rainbow_speed=rainbow_speed_value
 end
 end)
-
-
-

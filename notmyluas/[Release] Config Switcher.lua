@@ -132,6 +132,3 @@ function update_ui()
 end
 
 callbacks.Register("Draw", update_ui)
-
-
-

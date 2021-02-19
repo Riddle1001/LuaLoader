@@ -99,6 +99,3 @@ end
 client.AllowListener("bomb_planted")
 callbacks.Register("FireGameEvent", "on_bomb_planted", on_bomb_planted);
 callbacks.Register("Draw", "on_draw", on_draw) 
-
-
-

@@ -84,6 +84,3 @@ callbacks.Register("FireGameEvent", function(ev)
  sayStats(true)
  end
 end)
-
-
-

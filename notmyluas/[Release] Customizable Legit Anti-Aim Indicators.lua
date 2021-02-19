@@ -101,6 +101,3 @@ local function activationCheck()
 end
 
 callbacks.Register( "Draw", "LegitbotAntiAimIndicators",activationCheck );
-
-
-

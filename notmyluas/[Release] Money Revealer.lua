@@ -136,6 +136,3 @@ callbacks.Register("Draw", function()
   y = y + h*0.02453
  end
 end)
-
-
-

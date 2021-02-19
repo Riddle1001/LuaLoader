@@ -50,6 +50,3 @@ elseif not switch and velocity_on_stand_enable:GetValue() then
 cmd:SetSideMove(-velocity_on_stand:GetValue())
 end
 end)
-
-
-

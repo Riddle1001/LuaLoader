@@ -19,6 +19,3 @@ local screen_width, screen_height = draw.GetScreenSize();
 for i=1, 200 do local i2=i*0.01;  i2 = 2 - i2; local divisor = gcd(screen_width*i2, screen_height);	if screen_width*i2/divisor < 100 or i2 == 1 then aspect_ratio_table[i] = screen_width*i2/divisor .. ":" .. screen_height/divisor; end end
 local aspect_ratio = aspect_ratio_reference:GetValue()*0.01; aspect_ratio = 2 - aspect_ratio; set_aspect_ratio(aspect_ratio); end
 callbacks.Register('Draw', "does shit" ,on_aspect_ratio_changed)
-
-
-

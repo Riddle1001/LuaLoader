@@ -40,7 +40,3 @@ end
 
 
 callbacks.Register( "CreateMove", JUMPBUG_SCROLL )
-
-
-
-

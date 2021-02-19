@@ -30,6 +30,3 @@ end
 callbacks.Register('Draw', 'AutoWallKeyKeybind', AutoWall);
 --By An
 --QQ 2926669800
-
-
-

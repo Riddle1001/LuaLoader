@@ -24,7 +24,3 @@ end end
 callbacks.Register("FireGameEvent", "WhenWeaponFired", WhenWeaponFired);
 client.AllowListener("item_equip");
 client.AllowListener("weapon_fire");
-
-
-
-

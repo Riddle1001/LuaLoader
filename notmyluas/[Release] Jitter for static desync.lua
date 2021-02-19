@@ -22,6 +22,3 @@ end
 
 callbacks.Register("Draw", "main", main)
 callbacks.Register("Draw", "a", a)
-
-
-

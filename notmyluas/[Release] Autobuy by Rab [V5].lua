@@ -96,6 +96,3 @@ callbacks.Register('FireGameEvent', function(e)
 end);
 
 client.AllowListener("player_spawn");
-
-
-

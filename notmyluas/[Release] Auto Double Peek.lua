@@ -164,6 +164,3 @@ if globals.CurTime() < double_peek_delay and input.IsButtonDown(DP_KEY_VALUE) th
 moveToPos(cmd, {target:GetAbsOrigin()})
 end
 end)
-
-
-

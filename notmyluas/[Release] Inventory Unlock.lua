@@ -8,6 +8,3 @@ panorama.RunScript([[
  return true;
  };
 ]])
-
-
-

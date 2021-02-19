@@ -60,7 +60,3 @@ client.AllowListener( 'client_disconnect' );
 callbacks.Register( 'DrawESP', 'draw_esp', draw_esp );
 callbacks.Register( 'FireGameEvent', 'events_detection', events_detection );
 
-
-
-
-

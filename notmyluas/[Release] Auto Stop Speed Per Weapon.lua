@@ -70,6 +70,3 @@ if(entities.GetLocalPlayer() ~= nil and engine.GetServerIP() ~= nil and engine.G
 end
 end
 callbacks.Register("Draw", autostopspeed)
-
-
-

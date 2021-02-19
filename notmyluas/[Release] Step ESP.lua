@@ -153,6 +153,3 @@ local function onDrawStep()
 	end
 end
 callbacks.Register( "Draw", "Draw Step ESP", onDrawStep)
-
-
-

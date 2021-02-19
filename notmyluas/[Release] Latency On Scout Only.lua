@@ -24,6 +24,3 @@ end
 
 client.AllowListener('item_equip');
 callbacks.Register("FireGameEvent", "on_ssg08", LatencyScout);
-
-
-

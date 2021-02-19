@@ -190,6 +190,3 @@ callbacks.Register("Draw", "cleatables", cleartables)
 buildtable()
 
 --Per Player ESP by Cheeseot--
-
-
-

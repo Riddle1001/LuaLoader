@@ -1,11 +1,11 @@
 -- Scraped by chicken
 -- Author: yu0r
--- Title [Release] AIMWARE Seizure
+-- Title [Release] Aimware Seizure
 -- Forum link https://aimware.net/forum/thread/86012
 
--- gui.SetValue("esp.world.materials.walls",         math.random(0,1) )
--- gui.SetValue("esp.world.materials.walls.clr",         math.random(255) ,math.random(255),math.random(255),255)
--- gui.SetValue("esp.world.materials.staticprops",         math.random(0,1) )
+-- gui.SetValue("esp.world.materials.walls",    math.random(0,1) )
+-- gui.SetValue("esp.world.materials.walls.clr",    math.random(255) ,math.random(255),math.random(255),255)
+-- gui.SetValue("esp.world.materials.staticprops",    math.random(0,1) )
 -- gui.SetValue("esp.world.materials.staticprops.clr",math.random(255) ,math.random(255),math.random(255),255)
 -- zero fps with above
 
@@ -25,34 +25,34 @@ local lua_AidsCOLOR = gui.Checkbox( AIDSBOX, "lua_AidsMISC", "THE COLOR OF AIDS"
 
 function aids()
 if lua_AidsMISC:GetValue() then
-gui.SetValue("esp.other.crosshair",             math.random(0,1) )
-gui.SetValue("esp.local.wallbangdmg",         math.random(0,1) )
-gui.SetValue("esp.other.nosky",         math.random(0,1) )
-gui.SetValue("esp.other.nopostprocess",         math.random(0,1) )
+gui.SetValue("esp.other.crosshair",      math.random(0,1) )
+gui.SetValue("esp.local.wallbangdmg",    math.random(0,1) )
+gui.SetValue("esp.other.nosky",    math.random(0,1) )
+gui.SetValue("esp.other.nopostprocess",    math.random(0,1) )
 end
 if lua_AidsCOLOR:GetValue() then
-gui.SetValue("esp.chams.backtrack.occluded.clr", math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.chams.backtrack.overlay.clr",    math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.chams.backtrack.visible.clr",     math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.chams.enemy.occluded.clr",      math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.chams.enemy.overlay.clr",         math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.chams.enemy.visible.clr",          math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.chams.friendly.occluded.clr",    math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.chams.friendly.overlay.clr",       math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.chams.friendly.visible.clr",        math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.chams.ghost.occluded.clr",        math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.chams.ghost.overlay.clr",           math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.chams.ghost.visible.clr",             math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.chams.local.occluded.clr",          math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.chams.local.overlay.clr",             math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.chams.local.visible.clr",              math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.chams.weapon.occluded.clr",    math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.chams.weapon.overlay.clr",       math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.chams.weapon.visible.clr",        math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.other.crosshair.clr",                    math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.overlay.enemy.box.clr",             math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.overlay.friendly.box.clr",           math.random(255) ,math.random(255),math.random(255)	,255)
-gui.SetValue("esp.overlay.weapon.box.clr",           math.random(255) ,math.random(255),math.random(255)	,255)
+gui.SetValue("esp.chams.backtrack.occluded.clr", math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.chams.backtrack.overlay.clr",  math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.chams.backtrack.visible.clr",  math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.chams.enemy.occluded.clr",   math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.chams.enemy.overlay.clr",    math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.chams.enemy.visible.clr",     math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.chams.friendly.occluded.clr",  math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.chams.friendly.overlay.clr",   math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.chams.friendly.visible.clr",    math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.chams.ghost.occluded.clr",    math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.chams.ghost.overlay.clr",     math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.chams.ghost.visible.clr",      math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.chams.local.occluded.clr",     math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.chams.local.overlay.clr",      math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.chams.local.visible.clr",       math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.chams.weapon.occluded.clr",  math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.chams.weapon.overlay.clr",   math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.chams.weapon.visible.clr",    math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.other.crosshair.clr",          math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.overlay.enemy.box.clr",      math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.overlay.friendly.box.clr",     math.random(255) ,math.random(255),math.random(255) ,255)
+gui.SetValue("esp.overlay.weapon.box.clr",     math.random(255) ,math.random(255),math.random(255) ,255)
 end
 if lua_AidsOCC:GetValue() then
 gui.SetValue("esp.chams.weapon.occluded",math.random(0,5))
@@ -125,6 +125,3 @@ gui.SetValue("esp.world.nadetracer.local",math.random(0,1))
 end
 end
 callbacks.Register( "Draw", aids);
-
-
-

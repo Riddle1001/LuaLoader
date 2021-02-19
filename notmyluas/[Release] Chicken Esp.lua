@@ -19,7 +19,3 @@ local lua_ChickenAnim = Combobox(lua_groupbox, 'lua_ChickenAnim', 'Chicken Anima
 						chicken:SetProp('m_nSequence', 7)
 					end
 			end
-
-
-
-

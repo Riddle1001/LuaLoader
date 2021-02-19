@@ -15,6 +15,3 @@ end
 end
 
 callbacks.Register('DrawESP','iAmmoCheck',iAmmoCheck);
-
-
-

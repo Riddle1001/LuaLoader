@@ -20,6 +20,3 @@ if Event:GetName() == "other_death" then
 client.ChatSay(chatsay)
 end end end end
 client.AllowListener('other_death'); callbacks.Register('FireGameEvent', "chicken die", chickendead);
-
-
-

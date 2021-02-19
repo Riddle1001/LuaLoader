@@ -51,6 +51,3 @@ callbacks.Register('Draw',function()
 		gui.SetValue("esp.world.hiteffects.sound", "Off");
 	end
 end)
-
-
-

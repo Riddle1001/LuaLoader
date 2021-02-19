@@ -164,6 +164,3 @@ end
 
 callbacks.Register("Draw", hDraw);
 callbacks.Register("DrawESP", esp);
-
-
-

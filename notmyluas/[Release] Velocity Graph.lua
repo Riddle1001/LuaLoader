@@ -361,6 +361,3 @@ callbacks.Register("FireGameEvent", function(event)
   tickPrev = globals.TickCount()
   lastGraph = globals.TickCount()
 end)
-
-
-

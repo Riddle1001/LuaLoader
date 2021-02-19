@@ -4,6 +4,3 @@
 -- Forum link https://aimware.net/forum/thread/132489
 
 local ****** chams while scoped", false)
-
-
-

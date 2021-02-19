@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: password
--- Title [Release] helps you if you have fakelag mode on peek
+-- Title [Release] FakeLag Peek Modes
 -- Forum link https://aimware.net/forum/thread/86528
 
 
@@ -15,7 +15,3 @@ else
 end
 
 callbacks.Register( "Draw", "fakelagthings", fakelagthings);
-
-
-
-

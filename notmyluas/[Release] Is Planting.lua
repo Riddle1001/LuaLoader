@@ -149,6 +149,3 @@ client.AllowListener("round_prestart")
 callbacks.Register("FireGameEvent","get_event",get_event)
 callbacks.Register("DrawESP","draw_planting",draw_planting)
 callbacks.Register("Draw","draw_text",draw_text)
-
-
-

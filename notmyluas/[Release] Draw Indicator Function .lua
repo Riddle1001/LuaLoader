@@ -123,6 +123,3 @@ local function draw_Indicator()
 end
 
 callbacks.Register("Draw", "draw_Indicator", draw_Indicator);
-
-
-

@@ -28,6 +28,3 @@ local function changename()
   end
 end
 callbacks.Register("Draw", changename)
-
-
-

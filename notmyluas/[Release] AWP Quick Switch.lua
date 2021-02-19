@@ -75,7 +75,3 @@ function reset_tick( _cmd )
 end
 
 callbacks.Register( 'CreateMove', 'reset_tick', reset_tick );
-
-
-
-

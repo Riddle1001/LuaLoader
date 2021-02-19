@@ -61,7 +61,3 @@ y = y + 30
 end
 end
 end)
-
-
-
-

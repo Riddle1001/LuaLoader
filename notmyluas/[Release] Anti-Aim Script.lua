@@ -34,6 +34,3 @@ end
 
 callbacks.Register("Draw", LBY)
 callbacks.Register("Draw", JitterOffset)
-
-
-

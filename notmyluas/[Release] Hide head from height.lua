@@ -56,6 +56,3 @@ gui.SetValue("rbot.antiaim.left",base_left,"Desync")
 gui.SetValue("rbot.antiaim.right",base_right,"Desync")
 end
 end)
-
-
-

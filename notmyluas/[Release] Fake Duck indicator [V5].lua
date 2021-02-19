@@ -53,6 +53,3 @@ callbacks.Register("DrawESP", "FD_Indicator", function(Builder)
     end
   end
 end)
-
-
-

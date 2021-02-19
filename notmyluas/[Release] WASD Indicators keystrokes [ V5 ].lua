@@ -157,6 +157,3 @@ local font2 = draw.CreateFont('An', 27)
 
 end 
 callbacks.Register('Draw', 'draw_buttons', draw_buttons);
-
-
-

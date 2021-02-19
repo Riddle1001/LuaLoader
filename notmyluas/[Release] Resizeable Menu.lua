@@ -70,6 +70,3 @@ local function gay()
 end
 
 callbacks.Register("Draw", gay)
-
-
-

@@ -61,6 +61,3 @@ end
 
 callbacks.Register( "CreateMove", EDGEBUG_CREATEMOVE )
 callbacks.Register( "Draw", "EDGEBUG", DRAW_STATUS);
-
-
-

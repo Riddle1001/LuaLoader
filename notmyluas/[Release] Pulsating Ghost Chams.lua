@@ -10,6 +10,3 @@ local r, g, b = gui.GetValue("esp.chams.ghost.occluded.clr")
 local o = math.floor(math.sin((globals.RealTime()) * 6) * 68 + 112) - 40
 gui.SetValue("esp.chams.ghost.occluded.clr", r, g, b, o)
 end)
-
-
-

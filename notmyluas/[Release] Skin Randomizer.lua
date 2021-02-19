@@ -21,6 +21,3 @@
         gui.SetValue("skin_knife_ursus_paintkit", surs)
         gui.******", swid) -- talon
     end
-
-
-

@@ -92,7 +92,3 @@ if entity ~= nil then
 end
 end
 callbacks.Register('Draw', 'draw_mindmg', draw_mindmg)
-
-
-
-

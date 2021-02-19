@@ -52,6 +52,3 @@ end
 client.AllowListener("player_death")
 callbacks.Register("FireGameEvent", on_player_death)
 callbacks.Register("Draw", handler)
-
-
-

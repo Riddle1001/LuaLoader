@@ -69,6 +69,3 @@ callbacks.Register("DrawESP", "Nex.PingESP", function(Builder)
         end
     end
 end);
-
-
-

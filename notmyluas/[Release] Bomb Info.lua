@@ -119,7 +119,3 @@ client.AllowListener( "round_officially_ended" );
 
 callbacks.Register("FireGameEvent", "EventHookB", EventHook);
 callbacks.Register("Draw", "DrawingHookB", DrawingHook)
-
-
-
-

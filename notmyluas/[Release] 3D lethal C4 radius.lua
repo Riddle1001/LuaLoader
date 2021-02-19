@@ -132,9 +132,3 @@ callbacks.Register("Draw", function()
   draw.TextShadow(w*0.23, h*0.965, hitpoints_left .. " HP")
  end
 end)
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> a6c49463c8fc14920083ce7080e344b262a91a12

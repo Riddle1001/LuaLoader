@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: QBER
--- Title [Release] Full GUI interface [UPDATE] 17.09.2018
+-- Title [Release] Full GUI Interface 
 -- Forum link https://aimware.net/forum/thread/87062
 
 slider_int = ""
@@ -53,6 +53,3 @@ end
 RunScript( "mgui.lua" ) -- Library connections
 
 callbacks.Register( "Draw", "example", example );
-
-
-

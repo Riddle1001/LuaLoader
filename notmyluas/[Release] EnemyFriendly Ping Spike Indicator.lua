@@ -61,7 +61,3 @@ callbacks.Register("DrawESP", "Ping spike", function(builder)
     builder:Color(255, 255, 255, 255)
   end
 end)
-
-
-
-

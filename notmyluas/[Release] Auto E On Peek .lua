@@ -83,7 +83,3 @@ callbacks.Register("Draw", function()
  end
  end
 end)
-
-
-
-

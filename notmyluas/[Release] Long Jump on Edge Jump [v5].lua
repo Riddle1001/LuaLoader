@@ -66,7 +66,3 @@ callbacks.Register("Draw", function()
  draw.Text( centerX , y - 150, "lj")
  end
 end)
-
-
-
-

@@ -89,6 +89,3 @@ draw.SetFont( font )
 draw.Color( r, g, b )
 draw.TextShadow( X, Y, 'BAIM' )
 end)
-
-
-

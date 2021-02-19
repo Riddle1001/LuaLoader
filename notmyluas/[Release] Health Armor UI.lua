@@ -11,7 +11,6 @@ localHealthArmor_Reference=gui.Reference("Visuals","Local","Camera")
 localHealthArmor_Checkbox=gui.Checkbox(HealthArmor_Reference,"hparmorui.enable","HealthArmorUI",0);
 
 --var
-localw,h=draw.GetScreenSize()
 localfont=draw.CreateFont("SegoeUI",28,500)
 
 --alphafunction
@@ -20,12 +19,15 @@ ifval<minthenreturnminend
 ifval>maxthenreturnmaxend
 returnval;
 end
+
+
 --Ondarw
 localfunctionOndarw()
 
 locallp=entities.GetLocalPlayer()
 iflp~=nilandHealthArmor_Checkbox:GetValue()then
-localx,y=15,1025
+localx,y=draw.GetScreenSize()
+localx,y=x-x+15,y-50
 localhp=lp:GetHealth()
 localarmor=lp:GetProp("m_ArmorValue")
 client.SetConVar("hidehud",8,true)
@@ -85,6 +87,7 @@ draw.Text(x+225,y+7,"ARMOR")
 draw.Color(4,4,4,255)
 draw.OutlinedRect(x-1,y+30,x+115,y+45)
 draw.OutlinedRect(x+149,y+30,x+310,y+45)
+
 else
 client.SetConVar("hidehud",0,true)
 end
@@ -94,8 +97,4 @@ end
 callbacks.Register("Draw",Ondarw)
 --end
 --
-
-
-
-
 

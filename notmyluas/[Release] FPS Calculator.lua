@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: senator
--- Title [Release] how to correctly calculate fps
+-- Title [Release] FPS Calculator
 -- Forum link https://aimware.net/forum/thread/86999
 
 -- localisation
@@ -14,13 +14,10 @@ local frame_rate = 0.0; -- flt
 
 -- referenced: https://github.com/ValveSoftware/******/vgui_netgraphpanel.cpp#L729-L744
 local get_abs_fps = function()
-	frame_rate = 0.9 * frame_rate + (1.0 - 0.9) * abs_frame_time();
-	return math_floor((1.0 / frame_rate) + 0.5);
+ frame_rate = 0.9 * frame_rate + (1.0 - 0.9) * abs_frame_time();
+ return math_floor((1.0 / frame_rate) + 0.5);
 end
 
 callbacks_register("Draw", "test", function()
-	draw_text(25, 25, "fps:" .. get_abs_fps());
+ draw_text(25, 25, "fps:" .. get_abs_fps());
 end);
-
-
-

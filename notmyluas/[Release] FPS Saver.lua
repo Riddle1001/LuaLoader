@@ -19,7 +19,3 @@ callbacks.Register( "CreateMove", function()
    end
    gui.SetValue("rbot.hitscan.maxprocessingtime", final_proc)
 end )
-
-
-
-

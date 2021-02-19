@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: AppleJeb
--- Title [Release] Smoke on key 1.01b
+-- Title [Release] Smoke On Key
 -- Forum link https://aimware.net/forum/thread/128866
 
 local color_white = {255, 255, 255}
@@ -109,6 +109,3 @@ callbacks.Register("Draw", function()
  notify_time = nil
  end
 end)
-
-
-

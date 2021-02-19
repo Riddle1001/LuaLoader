@@ -283,6 +283,3 @@ end);
 -- the callbacks :clown:
 callbacks.Register('Draw', gatherVariables);
 callbacks.Register('Draw', drawHUDs);
-
-
-

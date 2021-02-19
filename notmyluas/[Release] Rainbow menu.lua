@@ -78,6 +78,3 @@ function rainbowmenu()
 end
 
 callbacks.Register( "Draw", "oops", rainbowmenu);
-
-
-

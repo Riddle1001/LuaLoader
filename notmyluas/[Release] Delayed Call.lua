@@ -12,7 +12,3 @@ print("Thiswillbeprintedafter2.5seconds.")
 end)
 
 DelayedCall(5.5,some_func)
-
-
-
-

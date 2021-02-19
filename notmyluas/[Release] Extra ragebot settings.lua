@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Chicken4676
--- Title [Release] Extra ragebot settings
+-- Title [Release] Extra RageBot Settings
 -- Forum link https://aimware.net/forum/thread/129180
 
 local timer = timer or {}
@@ -520,6 +520,3 @@ callbacks.Register("Draw", function()
     gui.SetValue("rbot.antiaim.base", DesiredYaw, DesiredYaw)
   end
 end)
-
-
-

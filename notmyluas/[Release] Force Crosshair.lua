@@ -7,7 +7,3 @@ local function forcecrosshair()
  client.SetConVar("weapon_debug_spread_show", 3, 1);
 end
 callbacks.Register( "Draw", "forcecrosshair", forcecrosshair);
-
-
-
-

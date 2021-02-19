@@ -118,7 +118,3 @@ end
 
 callbacks.Register("CreateMove", createMoveHook)
 callbacks.Register("Draw", drawHook);
-
-
-
-

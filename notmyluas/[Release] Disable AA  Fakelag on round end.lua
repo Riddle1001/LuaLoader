@@ -32,6 +32,3 @@ client.AllowListener('round_start');
 client.AllowListener('round_end');
 callbacks.Register("FireGameEvent", "roundstart", roundstart);
 callbacks.Register("FireGameEvent", "roundend", roundend);
-
-
-

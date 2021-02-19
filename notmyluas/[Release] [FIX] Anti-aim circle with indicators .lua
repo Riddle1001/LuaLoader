@@ -117,7 +117,3 @@ end
 callbacks.Register("Draw", circle)
 
 
-
-
-
-

@@ -110,7 +110,3 @@ callbacks.Register( "Draw", "render_hitpos", render_hitpos);
 
 client.AllowListener("player_hurt");
 callbacks.Register("FireGameEvent", "HS_SOUND", on_player_death);
-
-
-
-

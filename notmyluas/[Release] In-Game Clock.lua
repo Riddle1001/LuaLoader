@@ -186,6 +186,3 @@ draw.RoundedRectFill(x1-w/2,y1+h*4,x1+w/2,y1+h*5)
 draw.Color(r_s,g_s,b_s,a_s)
 draw.Text(x1-w/2,y1+h*4,date_os)
 end)
-
-
-

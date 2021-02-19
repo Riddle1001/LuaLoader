@@ -14,6 +14,3 @@ function FlashAlpha()
 end
 
 callbacks.Register("Draw", "FlashAlpha", FlashAlpha)
-
-
-

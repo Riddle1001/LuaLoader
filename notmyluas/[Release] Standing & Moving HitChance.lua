@@ -41,6 +41,3 @@ local function retard()
 end
 
 callbacks.Register( "Draw", retard )
-
-
-

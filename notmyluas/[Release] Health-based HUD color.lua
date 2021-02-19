@@ -34,7 +34,3 @@ end
 
 callbacks.Register( "Draw", "healthHud", healthHud);
 
-
-
-
-

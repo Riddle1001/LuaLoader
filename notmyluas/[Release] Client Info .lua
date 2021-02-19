@@ -97,7 +97,3 @@ client.AllowListener( "player_death" );
 client.AllowListener( "player_disconnect" );
 callbacks.Register( "FireGameEvent", "events_stuff", events_stuff);
 callbacks.Register( "Draw", "drawing_stuff", drawing_stuff );
-
-
-
-
