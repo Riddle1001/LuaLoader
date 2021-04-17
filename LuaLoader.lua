@@ -1,4 +1,4 @@
-local version = "VERSION 2.3"
+local version = "VERSION 2.4"
 local version_url = "https://raw.githubusercontent.com/Aimware0/LuaLoader/main/version.txt"
 
 -- pasted functions
@@ -13,134 +13,6 @@ local function split(inputstr, sep)
 	return t
 end
 -- end of paste
-
-
-
-
-
----- GUI CUSTOM SHIT
-
-function gui._Custom(ref, varname, name, x, y, w, h, paint, custom_vars)
-	local tbl = {val = 0}
-
-	local function read(v)
-		tbl.val = v
-	end
-
-	local function write()
-		return tbl.val
-	end
-	
-	local GuiObject = {
-		element = nil,
-		custom_vars = custom_vars or {},
-		name = name,
-		
-		GetValue = function(self)
-			return self.element:GetValue()
-		end,
-		
-		SetValue = function(self, value)
-			return self.element:SetValue(value)
-		end,
-		
-		GetName = function(self)
-			return self.name
-		end,
-		
-		SetName = function(self, name)
-			self.name = name
-		end,
-		
-		SetPosX = function(self, x)
-			self.element:SetPosX(x)
-		end,
-		
-		SetPosY = function(self, y)
-			self.element:SetPosY(y)
-		end,
-		
-		SetPos = function(self, x, y)
-			self.element:SetPosX(x)
-			self.element:SetPosY(y)
-		end,
-		
-		SetWidth = function(self, width)
-			self.element:SetWidth(width)
-		end,
-		
-		SetHeight = function(self, height)
-			self.element:SetHeight(height)
-		end,
-		
-		SetSize = function(self, w, h)
-			self.element:SetWidth(w)
-			self.element:SetHeight(h)
-		end,
-		
-		SetVisible = function(self, b)
-			self.element:SetInvisible(not b)
-		end,
-		
-		SetInvisible = function(self, b)
-			self.element:SetInvisible(b)
-		end,
-	}
-	
-	local function _paint(x, y, x2, y2, active)
-		local width = x2 - x
-		local height = y2 - y
-		paint(x, y, x2, y2, active, GuiObject, width, height)
-	end
-	
-	local custom = gui.Custom(ref, varname, x, y, w, h, _paint, write, read)
-	GuiObject.element = custom
-	
-	return GuiObject
-end
-
-
-
-function gui.ColoredText(ref, text, x, y, options)
-	local function paint(x, y, x2, y2, active, self, width, height)
-		local options = self.custom_vars
-		draw.Color(options.color[1], options.color[2], options.color[3])
-		draw.SetFont(options.font)
-		draw.Text(x, y, options.text)
-	end
-	
-	
-	
-	local options = options or {}
-	local vars = {
-		text = text,
-		color = options.color or {255,255,255},
-		font = options.font
-	}
-	
-	
-	
-	
-	local custom = gui._Custom(ref, "", "", x, y, 100, 100, paint, vars)
-
-	local funcs = {
-		SetOptions = function(self, options)
-			vars.text = options.text or vars.text
-			vars.font = options.font or vars.font
-		end
-	}
-	
-	local meta = {__index = custom}
-	setmetatable(funcs, meta) -- Allows funcs to have gui._Custom's functions
-	
-	return funcs
-end
-
-
-------- END GUI CUSTOM SHIT
-
-
-
 
 
 
@@ -536,23 +408,23 @@ local function CreateScriptBox(script_name, author, author_rank, script_url, thr
 	GO_SetPos(script_link, 480,-42)
 	GO_SetSize(script_link, 100, 20)
 
-	local author_text = gui.Text(script_box.GO_objects.header_gb, "Author: ")
+	local author_text = gui.Text(script_box.GO_objects.header_gb, "Author: " .. author)
+	-- author_text:SetPos
+	-- local color = {255, 160, 0}
+	-- if author_rank == "VIP" then
+		-- color = {255, 160, 0}
+	-- elseif author_rank == "Beta Tester" then
+		-- color = {48, 152, 48}
+	-- end
 	
-	local color = {255, 160, 0}
-	if author_rank == "VIP" then
-		color = {255, 160, 0}
-	elseif author_rank == "Beta Tester" then
-		color = {48, 152, 48}
-	end
+	-- if author == "Chicken4676" then
+		-- color = {185, 15, 10}
+	-- end
 	
-	if author == "Chicken4676" then
-		color = {185, 15, 10}
-	end
-	
-	local author_text = gui.ColoredText(script_box.GO_objects.header_gb, author, 43, -6, {
-		font = font,
-		color = color
-	})
+	-- local author_text = gui.ColoredText(script_box.GO_objects.header_gb, author, 43, -6, {
+		-- font = font,
+		-- color = color
+	-- })
 	-- local author_text = gui.ColoredText(lualoader_tab, "test", 200, 200)
 
 	-- print(gui.ColoredText)
