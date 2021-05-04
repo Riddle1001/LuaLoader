@@ -430,25 +430,6 @@ local function CreateScriptBox(script_name, author, author_rank, script_url, thr
 
 	local author_text = gui.Text(script_box.GO_objects.header_gb, "Author: ")
 	
-	local color = {255, 160, 0}
-	if author_rank == "VIP" then
-		color = {255, 160, 0}
-	elseif author_rank == "Beta Tester" then
-		color = {48, 152, 48}
-	end
-	
-	if author == "Chicken4676" then
-		color = {185, 15, 10}
-	end
-	
-	-- local author_text = gui.ColoredText(script_box.GO_objects.header_gb, author, 43, -6, {
-		-- font = font,
-		-- color = color
-	-- })
-	local author_text = gui.ColoredText(lualoader_tab, author, 200, 200)
-
-	-- print(gui.ColoredText)
-	
 	
 	script_box.GO_objects.run_btn = gui.Button(script_box.GO_objects.header_gb, "Run", function()
 		LoadScript(script_box.downloads_path)
