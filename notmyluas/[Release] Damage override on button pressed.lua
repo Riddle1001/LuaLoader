@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: danilataraw
--- Title [Release] Damage override on button pressed
+-- Title [Release] Damage Override On Button Pressed
 -- Forum link https://aimware.net/forum/thread/128117
 
 local guiSet = gui.SetValue

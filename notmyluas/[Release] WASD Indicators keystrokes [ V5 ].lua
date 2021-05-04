@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: AnAnAn
--- Title [Release] WASD Indicators keystrokes [ V5 ]
+-- Title [Release] WASD Indicators Keystrokes [ V5 ]
 -- Forum link https://aimware.net/forum/thread/128301
 
 ---------------------------------------------------键位指示器 作者 An
@@ -65,93 +65,93 @@ local font2 = draw.CreateFont('An', 27)
      draw.SetFont(font1)
 
      if input.IsButtonDown( 87 ) then
-		 drawActiveBox(127, 568, 171, 611) -- - 3 for x1, -2 y1, +44 x2, +53 y2
+  drawActiveBox(127, 568, 171, 611) -- - 3 for x1, -2 y1, +44 x2, +53 y2
      draw.Color(0,255,0, 255) ----颜色
      else
-		 drawBox(127, 568, 171, 611)
+  drawBox(127, 568, 171, 611)
      draw.Color(255, 255, 255, 255)
      end
      draw.Text(132.5, 578, "W") -- 946, 750
      
 
      if input.IsButtonDown( 83 ) then
-		 drawActiveBox(127, 612, 171, 651)
+  drawActiveBox(127, 612, 171, 651)
      draw.Color(0,255,0, 255) ----颜色
      else
-		 drawBox(127, 612, 171, 651)
+  drawBox(127, 612, 171, 651)
      draw.Color(255, 255, 255, 255)
      end
      draw.Text(135, 618, "S") --952 790
      
      
      if input.IsButtonDown( 65 ) then
-		 drawActiveBox(88, 612, 126, 651)
+  drawActiveBox(88, 612, 126, 651)
      draw.Color(0,255,0, 255) ----颜色
      else
-		 drawBox(88, 612, 126, 651)
+  drawBox(88, 612, 126, 651)
      draw.Color(255, 255, 255, 255)
      end
      draw.Text(91, 618, "A") --912 790
      
      
      if input.IsButtonDown( 68 ) then
-		 drawActiveBox(172, 612, 214, 651)
+  drawActiveBox(172, 612, 214, 651)
      draw.Color(0,255,0, 255) ----颜色
      else
-		 drawBox(172, 612, 214, 651)
+  drawBox(172, 612, 214, 651)
      draw.Color(255, 255, 255, 255)
      end
      draw.Text(180, 618, "D") --990 790
-		 
-		 
-		if input.IsButtonDown( 81 ) then
-		 drawActiveBox(88, 568, 126, 611)
+  
+  
+ if input.IsButtonDown( 81 ) then
+  drawActiveBox(88, 568, 126, 611)
      draw.Color(0,255,0, 255) ----颜色
-		 draw.Text( 92, 578, "Q") --912 790
+  draw.Text( 92, 578, "Q") --912 790
      else
      end
-		 
-		 if input.IsButtonDown( 69 ) then
-		 drawActiveBox(172, 568, 214, 611)
+  
+  if input.IsButtonDown( 69 ) then
+  drawActiveBox(172, 568, 214, 611)
      draw.Color(0,255,0, 255) ----颜色
-		 draw.Text( 180, 578, "E") --912 790
+  draw.Text( 180, 578, "E") --912 790
      else
      end
      
      
     if input.IsButtonDown( 32 ) then
-		draw.Color(		0,255,0, 255)
-		 draw.Text( 97, 650, "space") --910 800
+ draw.Color( 0,255,0, 255)
+  draw.Text( 97, 650, "space") --910 800
      end
-		 
-		 draw.SetFont(font2)
-		 if input.IsButtonDown( 1 ) then
-		 drawActiveBox(240, 568, 290, 651) ----按下后 方框的位置
+  
+ draw.SetFont(font2)
+ if input.IsButtonDown( 1 ) then
+ drawActiveBox(240, 568, 290, 651) ----按下后 方框的位置
     draw.Color(0,255,0, 255) ----颜色
     else
-		 drawBox(240, 568, 290, 651) ----不按 方框的位置
+ drawBox(240, 568, 290, 651) ----不按 方框的位置
     draw.Color(255, 255, 255, 255) ----颜色
     end
     draw.Text(248, 600, "M1") --字体位置
-		 
+ 
 
-		 if input.IsButtonDown( 2 ) then
-		 drawActiveBox(291, 568, 341, 651) ----按下后 方框的位置
+  if input.IsButtonDown( 2 ) then
+ drawActiveBox(291, 568, 341, 651) ----按下后 方框的位置
     draw.Color(0,255,0, 255) ----颜色
     else
-		 drawBox(291, 568, 341, 651) ----不按 方框的位置
+ drawBox(291, 568, 341, 651) ----不按 方框的位置
     draw.Color(255, 255, 255, 255) ----颜色
     end
     draw.Text(297, 600, "M2") --字体位置
  
      
-		 
-		 draw.SetFont(font2)
+  
+  draw.SetFont(font2)
      
      --Shift
      if input.IsButtonDown( 16 ) then
-      draw.Color(	0,255,0, 255)
-			draw.Text(15, 650, "shift") --830 824
+      draw.Color( 0,255,0, 255)
+ draw.Text(15, 650, "shift") --830 824
      end
       
 

@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: tripped
--- Title [Release] Switch Desync & Manual AA with indicators
+-- Title [Release] Switch Desync & Manual AA With Indicators
 -- Forum link https://aimware.net/forum/thread/146452
 
 local guiRef = gui.Reference( "Ragebot", "Anti-Aim", "Advanced" )

@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Giperfast.tk
--- Title [Release] Spectator list
+-- Title [Release] Spectator List
 -- Forum link https://aimware.net/forum/thread/120033
 
 local mouseX, mouseY, x, y, dx, dy, w, h = 0, 0, 25, 660, 0, 0, 300, 60;

@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Izi hax
--- Title [Release] Hitchance and MinDamage while moving
+-- Title [Release] Hitchance and MinDamage While Moving
 -- Forum link https://aimware.net/forum/thread/121248
 
 

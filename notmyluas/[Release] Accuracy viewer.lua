@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Chicken4676
--- Title [Release] Accuracy viewer
+-- Title [Release] Accuracy Viewer
 -- Forum link https://aimware.net/forum/thread/129880
 
 function blacklisted(ply, weapon_dmg)

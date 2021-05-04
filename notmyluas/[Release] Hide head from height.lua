@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: JohnK.
--- Title [Release] Hide head from height
+-- Title [Release] Hide Head From Height
 -- Forum link https://aimware.net/forum/thread/129673
 
 localref=gui.Reference("Ragebot","Anti-Aim","Advanced")

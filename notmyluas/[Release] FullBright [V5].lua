@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: adrianobessa5682
--- Title [Release] FullBright [V5]
+-- Title [Release] Fullbright [V5]
 -- Forum link https://aimware.net/forum/thread/127877
 
 print("Loaded Aimware FullBright Lua by Starlordaiden")

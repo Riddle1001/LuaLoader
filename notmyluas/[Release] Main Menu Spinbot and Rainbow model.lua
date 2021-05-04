@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: ShadyRetard
--- Title [Release] Main Menu Spinbot and Rainbow model
+-- Title [Release] Main Menu Spinbot and Rainbow Model
 -- Forum link https://aimware.net/forum/thread/130789
 
 --RetardedmenuspinbotbyShadyRetard

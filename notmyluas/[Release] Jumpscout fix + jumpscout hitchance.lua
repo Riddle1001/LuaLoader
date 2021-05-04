@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Bean07
--- Title [Release] Jumpscout fix + jumpscout hitchance
+-- Title [Release] JumpScout Fix + JumpScout HitChance
 -- Forum link https://aimware.net/forum/thread/129801
 
 local ref = gui.Reference("Ragebot")

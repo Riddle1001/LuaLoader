@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Chicken4676
--- Title [Release] Toggle duck
+-- Title [Release] Toggle Duck
 -- Forum link https://aimware.net/forum/thread/133583
 
 local duck_toggled = false

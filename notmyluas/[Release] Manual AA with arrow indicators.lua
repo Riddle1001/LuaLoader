@@ -1,6 +1,6 @@
 -- Scraped by chicken
 -- Author: Frogg
--- Title [Release] Manual AA with arrow indicators
+-- Title [Release] Manual AA With Arrow Indicators
 -- Forum link https://aimware.net/forum/thread/129852
 
 -- Manual AA & Indicators
