@@ -1,4 +1,4 @@
-local version = "VERSION 2.3"
+local version = "VERSION 2.4"
 local version_url = "https://raw.githubusercontent.com/Aimware0/LuaLoader/main/version.txt"
 
 -- pasted functions
