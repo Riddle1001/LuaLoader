@@ -1,4 +1,4 @@
-local version = "VERSION 2.45"
+local version = "VERSION 2.46"
 local version_url = "https://raw.githubusercontent.com/Aimware0/LuaLoader/main/version.txt"
 
 -- pasted functions
@@ -428,7 +428,7 @@ local function CreateScriptBox(script_name, author, author_rank, script_url, thr
 	GO_SetPos(script_link, 480,-42)
 	GO_SetSize(script_link, 100, 20)
 
-	local author_text = gui.Text(script_box.GO_objects.header_gb, "Author: ")
+	local author_text = gui.Text(script_box.GO_objects.header_gb, "Author: " .. author)
 	
 	
 	script_box.GO_objects.run_btn = gui.Button(script_box.GO_objects.header_gb, "Run", function()
